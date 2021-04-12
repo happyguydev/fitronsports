@@ -1,0 +1,10 @@
+/*! purgecss start ignore */
+
+.image-editor-tool {
+  @apply m-2;
+  &.active {
+    color: teal;
+  }
+}
+
+/*! purgecss end ignore */

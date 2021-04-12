@@ -1,0 +1,76 @@
+/*! purgecss start ignore */
+
+body {
+  @apply flex flex-col;
+  @apply min-h-screen;
+  @apply text-main-500;
+  @apply bg-white;
+
+  font-family: Rubik, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  .content {
+    @apply flex flex-1 flex-col w-full h-full;
+  }
+}
+
+.text-grey {
+  color: #a7a7a7;
+}
+
+.border-grey {
+  border-color: #a7a7a7;
+}
+
+.max-w-container {
+  max-width: 1140px !important;
+}
+
+.container {
+  @apply mx-auto;
+  @apply px-6;
+  max-width: 1140px !important;
+}
+
+.md-container {
+  @screen md {
+    @apply mx-auto;
+    @apply px-6;
+    max-width: 1140px;
+  }
+}
+
+.sm-container {
+  @apply mx-auto;
+  @apply px-6;
+  max-width: 1140px;
+
+  @screen md {
+    @apply px-0;
+    max-width: 100%;
+  }
+}
+
+.back-button {
+  @apply flex flex-row items-center mb-3 text-primary-600;
+}
+
+.alt-background {
+  background-color: #f7f7f7;
+}
+
+body.registrations.registrations--new,
+body.sessions.sessions--new,
+body.facilities.facilities--new {
+  @screen md {
+    background-color: #f7f7f7;
+  }
+}
+
+body.facilities.facilities--new {
+  .panel {
+    @apply max-w-4xl mx-auto;
+  }
+}
+
+/*! purgecss end ignore */

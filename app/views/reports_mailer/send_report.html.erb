@@ -1,0 +1,7 @@
+S.g. <%= @facility.contact_name.titleize %>,</br></br>
+
+Wir haben einen neuen Prüfbericht für die Sportstätte "<%= @facility.name.titleize %>" erstellt.</br>
+Bitte klicken Sie hier, um die Detailansicht zu öffnen: <%= link_to nil, public_report_page_url(@report.uid) %></br></br>
+
+Beste Grüße,</br>
+Ihr Fitronsport Team

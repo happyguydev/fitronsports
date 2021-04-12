@@ -1,0 +1,34 @@
+<%= link_to edit_inspectors_report_path(report) do %>
+  <article class="border border-grey-200 rounded-lg p-4">
+    <div class="flex flex-row items-center justify-between">
+      <div class="flex flex-row justify-between items-center">
+        <span class="text-sm mb-1 text-gray-800 border-r pr-2">
+          <%= t "report.status.#{report.status}" %>
+        </span>
+        <span class="text-sm mb-1 text-gray-600 pl-2">
+          <%= t "common.created_2" %> <%= report.created_at.strftime('%d.%m.%Y') %>
+        </span>
+      </div>
+      
+      <button type="button">
+        <%= icon :dots %>
+      </button>
+    </div>
+    <div class="font-medium text-black">
+      <%= report.title %>
+    </div>
+    <div class="font-medium report-list__facility">
+      <%= report.facility.name %>
+    </div>
+    <div class="flex flex-row flex-wrap">
+      <% report.rate_details.each do |rate_item| %>
+        <span class="report-list__item--rate <%= rate_item[:rate]%>">
+        <%= t("report.part.rate.#{rate_item[:rate]}") %> (<%= rate_item[:count]%>)
+        </span>
+      <% end %>
+    </div>
+    <div class="text-sm">
+      <%= t("common.ref_number") %> <%= report.ref_number %>
+    </div>
+  </article>
+<% end %>

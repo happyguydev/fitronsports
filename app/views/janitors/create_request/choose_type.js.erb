@@ -1,0 +1,6 @@
+<% case @request.request_type.to_sym %>
+<% when :service_request %>
+Turbolinks.visit("<%= wizard_path(:equipment_service) %>")
+<% else %>
+Turbolinks.visit("<%= wizard_path(:product_order) %>")
+<% end %>

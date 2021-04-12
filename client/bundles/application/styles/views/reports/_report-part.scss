@@ -1,0 +1,40 @@
+/*! purgecss start ignore */
+.report-part {
+  &__header{
+    @apply flex flex-row items-center;
+    @apply font-bold pt-4;
+    font-size: 16px;
+
+    &-badge {
+      width: 8px;
+      height: 8px;
+      @apply ml-1 rounded-full;
+    }
+    
+    &-badge.good {
+      background-color: $rate-badge-color-good;
+    }
+    &-badge.problematic {
+      background-color: $rate-badge-color-problematic;
+    }
+    &-badge.bad {
+      background-color: $rate-badge-color-bad;
+    }
+  }
+
+  &__description{
+    font-size: 13px;
+  }
+
+  &--rate {
+    @apply text-base mt-4 text-grey-500 font-normal;
+    &__active {
+      @apply text-base mt-4 text-grey-800 font-bold;
+    }
+  }
+
+  &-editor{
+    padding-bottom: $wizard-actions-height + $wizard-bottom-hint-height;
+  }
+}
+/*! purgecss end ignore */

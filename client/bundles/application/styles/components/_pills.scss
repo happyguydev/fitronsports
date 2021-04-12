@@ -1,0 +1,17 @@
+/*! purgecss start ignore */
+.pill {
+  @apply flex-1 flex items-center justify-center;
+
+  @screen md {
+    @apply flex-grow-0 px-5;
+  }
+
+  &__title {
+    @apply text-center font-medium;
+  }
+
+  &--active {
+    @apply bg-primary-500 text-white py-2 rounded-full;
+  }
+}
+/*! purgecss end ignore */

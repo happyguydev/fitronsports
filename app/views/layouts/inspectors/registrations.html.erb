@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'shared/head' %>
+  </head>
+
+  <body class="<%= body_class %> container">
+    <div class="session-page">
+      <div class="panel">
+        <%= image_tag 'logo', class: 'my-6 mb-4 w-32 self-start' %>
+
+        <h1 class="font-bold text-2xl max-w-sm leading-tight text-left">
+          Create a new <br class="block md:hidden" /> account for free.
+        </h1>
+
+        <div class="flex flex-col mt-10 flex-1 pb-12">
+          <%= yield %>
+
+          <div class="md:hidden text-center mx-auto flex flex-row justify-center items-end flex-1 text-grey-500 signin-top mt-6">
+            Already have an account? <%= link_to 'Sign In', new_inspector_session_path, class: 'text-primary-500 ml-2' %>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="hidden md:flex text-grey-500 mb-12 signin-bottom">
+        Already have an account? <%= link_to 'Sign In', new_inspector_session_path, class: 'text-primary-500 ml-2' %>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<% filters = ['all', *Request.statuses.keys.select{|k| k != 'archived'}] %>
+
+<div data-controller="request-list">
+  <div class="flex flex-row justify-between">
+    <div class="flex flex-row flex-1">
+      <% filters.each do |status_type| %>
+        <button
+          type="button"
+          class="pill"
+          data-filter="<%= status_type %>"
+          data-action="click->request-list#filter"
+          data-target="request-list.filter"
+        >
+          <span class="pill__title"><%= t "request.status.#{status_type.to_s}" %></span>
+        </button>
+      <% end %>
+    </div>
+    <div class="hidden md:flex">
+      <%= link_to janitors_create_request_index_path, data: {turbolinks: false} do %>
+        <%= icon :add_outline_circle %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="flex flex-col md:flex-row md:flex-wrap mt-6">
+    <% @requests.each do |request| %>
+      <div
+        id="<%= dom_id request %>"
+        class="hidden request-list__item"
+        data-target="request-list.request"
+        data-filter="<%= request.status %>">
+        <%= render 'janitors/requests/item', request: request %>
+      </div>
+    <% end %>
+  </div>
+</div>

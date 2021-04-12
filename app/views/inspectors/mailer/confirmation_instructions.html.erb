@@ -1,0 +1,17 @@
+<p>Dear <%= @resource&.first_name %> <%= @resource&.last_name %>!</p>
+
+<p>
+  Thank you for creating your auditor account in the <%= ENV['DEFAULT_APP_NAME']%>.<br/>
+  Please click the following link to confirm your email address:<br/>
+  <%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @resource.confirmation_token) %>
+</p>
+
+<h4>
+  FITRON GmbH<br/>
+  Marktplatz 4/8<br/>
+  3313 Wallsee<br/>
+  Österreich<br/>
+  +43(0)7433 20001<br/>
+  <%= link_to 'office@fitronshops.com', 'office@fitronshops.com' %><br/>
+  <%= link_to 'www.fitronshops.com', 'www.fitronshops.com' %><br/>
+</h4>

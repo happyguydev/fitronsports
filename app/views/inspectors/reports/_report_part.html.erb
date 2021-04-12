@@ -1,0 +1,16 @@
+<div
+  id="<%= dom_id(report_part) %>" 
+  class="report-part-item hidden"
+  data-id="<%= report_part.id %>"
+  data-title="<%= report_part.title %>"
+  data-description="<%= report_part.description %>"
+  data-rate="<%= report_part.rate %>"
+  data-product_id="<%= report_part.product_id %>"
+  data-product_title="<%= report_part.product_title %>"
+  >
+  <% report_part.images.each do |attachment| %>
+    <div data-id="<%= attachment.id %>" data-image="<%= report_part.image_url(attachment) %>" data-note="<%= attachment.note %>" class="report-part__attachment">
+    </div>
+  <% end %>
+</div>
+

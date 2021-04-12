@@ -1,0 +1,55 @@
+/*! purgecss start ignore */
+
+.button {
+  @apply flex flex-row;
+  @apply items-center justify-center;
+  @apply p-3 font-medium;
+  @apply rounded-md shadow-sm;
+  @apply transition-all ease-in-out duration-300;
+}
+
+.button--primary {
+  @apply bg-primary-500;
+  @apply text-white;
+  @apply cursor-pointer;
+
+  &:hover {
+    @apply bg-primary-400;
+  }
+}
+
+.button--outline {
+  @apply border border-gray-200;
+}
+
+.button--disabled,
+.button:disabled {
+  @apply cursor-default;
+
+  background-color: rgb(187, 184, 184);
+}
+
+.icon-button {
+  @extend .button;
+  @extend .button--outline;
+  @apply w-full items-center p-2;
+  @apply flex flex-row;
+
+  &__body {
+    @apply flex flex-col flex-1 mx-2;
+  }
+  
+  &__title {
+    @apply text-base font-normal;
+  }
+  
+  &__description {
+    @apply text-grey-500 font-normal;
+    font-size: 13px;
+  }
+
+  &__icon-end {
+    @apply mr-4;
+  }
+}
+/*! purgecss end ignore */

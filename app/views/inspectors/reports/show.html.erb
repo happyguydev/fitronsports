@@ -1,0 +1,113 @@
+<%= content_for :header do %>
+  <div class="toolbar js-dashboard-toolbar md:hidden">
+    <div class="toolbar__back">
+      <%= icon_link_to :back, inspectors_dashboard_path %>
+    </div>
+
+    <ul class="toolbar__actions">
+      <% if can? :edit, @report %>
+        <li><%= icon_link_to :edit, edit_inspectors_report_path(@report), 'data-turbolinks': false %></li>
+      <% else %>
+        <li><%= icon :edit, class: 'text-grey-500' %></li>
+      <% end %>
+      
+      <% if can? :destroy, @report %>
+        <li><%= icon_link_to :trash, inspectors_report_path(@report), method: :delete, data: { confirm: t("report.delete_confirm") } %></li>
+      <% else %>
+        <li><%= icon :trash, class: 'text-grey-500' %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="header-nav--wrapper">
+    <div class="header-nav">
+      <h4 class="text-grey-800"><%= link_to t("janitors.dashboard.header.home"), inspectors_dashboard_path, class: 'breadcrumb' %></h4> &nbsp;&nbsp;<%= icon :right %>&nbsp;&nbsp;<h4 class="text-grey-400"><%= @report.title %></h4>
+    </div>
+  </div>
+<% end %>
+
+<div class="dashboard-wrapper__page">
+  <div class="flex-1 h-full w-full">
+    <div class="bg-white pb-2">
+      <div class="container report-show__header-detail">
+        <div class="flex flex-row md:justify-between items-start">
+          <h1 class="text-2xl font-bold mb-4"><%= @report.title %></h1>
+          <div class="flex-col items-end hidden md:flex">
+            <% if can? :edit, @report %>
+              <%= icon_link_to :edit, edit_inspectors_report_path(@report), 'data-turbolinks': false %>
+            <% else %>
+              <%= icon :edit, class: 'text-grey-500' %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="font-medium report-list__facility">
+          <%= @report.facility.name %>
+        </div>
+        <div class="flex flex-row mt-4 md:mt-2">
+          <div class="flex flex-row justify-between md:justify-start w-full">
+            <div class="report-flag w-full md:w-auto">
+              <div class="report-flag__icon">
+                <%= icon :clock_edit %>
+              </div>
+              <div class="report-flag__body">
+                <div class="report-flag__title">
+                  <%= t("common.created_2") %>
+                </div>
+                <div class="report-flag__detail">
+                  <%= @report.created_at.strftime('%d.%m.%Y') %>
+                </div>
+              </div>
+            </div>
+
+            <div class="report-flag w-full md:w-auto md:ml-10">
+              <div class="report-flag__icon">
+                <%= icon :status_flag %>
+              </div>
+              <div class="report-flag__body">
+                <div class="report-flag__title">
+                  <%= t("common.status") %>
+                </div>
+                <div class="report-flag__detail">
+                  <%= t("report.status.#{@report.status}") %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:flex flex-1 text-right hidden">
+            <% if can? :destroy, @report %>
+              <%= icon_link_to :trash, inspectors_report_path(@report), method: :delete, data: { confirm: t("report.delete_confirm") } %>
+            <% else %>
+              <%= icon :trash, class: 'text-grey-500' %>
+            <% end %>
+          </div>
+        </div>
+        <div class="flex flex-row flex-wrap mt-2">
+          <% @report.rate_details.each do |rate_item| %>
+            <span class="report-list__item--rate <%= rate_item[:rate]%>">
+            <%= t("report.part.rate.#{rate_item[:rate]}") %> (<%= rate_item[:count]%>)
+            </span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="container flex flex-col report-show__detail">
+      <% @report.report_parts.each do |report_part| %>
+        <%= render 'inspectors/reports/report_part_card', report_part: report_part %>
+      <% end %>
+
+      <% if @report.status != 'draft' %>
+        <div class="flex flex-col">
+          <div class="report-part__header">
+            <%= t('common.signature') %>
+          </div>
+          <div class="report-part_attachment">
+            <div class="attachment__image">
+              <%= image_tag(@report.signature.image.url) if @report.signature %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>

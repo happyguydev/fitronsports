@@ -1,0 +1,52 @@
+<%= content_for :head do %>
+  <%= javascript_pack_tag :edit_request, 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag :edit_request, media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+<div class="dashboard-wrapper__page">
+  <div class="flex flex-col">
+    <div class="text-2xl font-bold"><%= t("request.edit_title") %></div>
+
+    <div class="mt-5 wizard">
+      <%= vue_form_for @request, 
+        url: janitors_request_path(@request), 
+        html: { '@submit.prevent': 'editRequest', 'data-controller': 'edit-request' } do |f| %>
+        <div class="field-group">
+          <div class="field-group__title">
+            <%= I18n.t("requests.edit.input_groups.#{@request.request_type}") %>
+          </div>
+
+          <div class="field">
+            <%= f.text_field :title, placeholder: t('activemodel.attributes.create_request_form.title') + " *",'aria-required': 'true' %>
+          </div>
+
+          <div class="field text">
+            <%= f.text_area :description, placeholder: t('activemodel.attributes.create_request_form.description') + " *", 'aria-required': 'true' %>
+          </div>
+        </div>
+
+        <% @request.not_original_images.each_with_index do |image, index| %>
+          <%= render 'janitors/requests/attachment', attachment: image, request: @request, method: :edit, index: index %>
+        <% end %>
+
+        <div>
+          <attachments-form
+            :attachments="attachments"
+            :is-mandatory="true"
+            s3-directory="requests"
+            @on-image="uploadedImage"
+            @on-directly-uploaded="directlyUploadedImageToS3"
+            @updated-attachment="updatedAttachment"
+            @removed-attachment="removedAttachment"
+          />
+        </div>
+
+        <div class="wizard-actions">
+          <div class="flex flex-row w-full">
+            <%= f.submit t("common.save"), class: 'button button--outline w-full mr-6 cursor-pointer bg-white', id: 'edit_request_save' %>
+            <%= f.submit t("common.submit"), class: 'button button--primary w-full', id: 'edit_request_submit' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

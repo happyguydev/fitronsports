@@ -1,0 +1,18 @@
+/*! purgecss start ignore */
+.header-nav--wrapper{
+  @apply w-full bg-subGrey flex flex-col;
+  .header-nav {
+    @apply hidden;
+    @apply bg-subGrey py-4 w-full items-center px-6;
+    @ppply items-center;
+
+    @screen md{
+      max-width: 1140px;
+      @apply flex mx-auto;
+      height: 60px;
+    }
+  }
+}
+
+
+/*! purgecss end ignore */

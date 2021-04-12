@@ -1,0 +1,38 @@
+<div
+  class="modal modal--<%= modal.position %> modal--controller-<%= modal.controller_name %>"
+  data-controller="<%= modal.controller_name %>"
+  <% if modal.target %> data-target="<%= modal.target %>" <% end %>
+>
+  <div
+    class="modal__overlay"
+    role="button"
+    aria-role="button"
+    tabindex="0"
+    data-target="<%= modal.controller_name %>.overlay"
+    data-action="click-><%= modal.controller_name %>#close"
+  ></div>
+  <div class="modal__content" data-target="<%= modal.controller_name %>.content">
+    <% if modal.header %>
+      <div class="<%= modal.header.class_name %> modal__header">
+        <%= modal.header.content %>
+        <button type="button" aria-label="Close" data-action="click-><%= modal.controller_name %>#close">
+          <% if modal.close.content? %>
+            <%= modal.close.content %>
+          <% else %>
+            <%= @view.icon :close %>
+          <% end %>
+        </button>
+      </div>
+    <% end %>
+    <% if modal.body %>
+      <div class="modal__body">
+        <%= modal.body.content %>
+      </div>
+    <% end %>
+    <% if modal.footer %>
+      <div class="modal__footer">
+        <%= modal.footer.content %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<%= content_for :head do %>
+  <%= javascript_pack_tag :edit_report, 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag :edit_report, media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= render "inspectors/reports/report_info", report: @report %>
+<% end %>
+
+<%= content_for :header do %>
+  <div class="toolbar js-dashboard-toolbar md:hidden">
+    <div class="toolbar__back">
+      <%= icon_link_to :back, '#', class: 'js-wizard-back' %>
+    </div>
+
+    <ul class="toolbar__actions">
+      <% if @report.status == 'draft' %>
+        <li><%= icon_link_to :edit, '#', class: 'js-edit-report-title' %></li>
+        <li><%= icon_link_to :trash, inspectors_report_path(@report), method: :delete, data: { confirm: t("report.delete_confirm") }, class: 'js-delete-report'  %></li>
+      <% else %>
+        <li><%= icon :edit, class: 'js-edit-report-title text-gray-500' %></li>
+        <li><%= icon :trash, class: 'text-gray-500 js-delete-report'  %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="header-nav--wrapper">
+    <div class="header-nav">
+      <h4 class="text-grey-800"><%= link_to t("janitors.dashboard.header.home"),inspectors_dashboard_path, class: 'breadcrumb' %></h4> 
+      &nbsp;&nbsp;<%= icon :right %>&nbsp;&nbsp;<h4 class="text-grey-400"><%= t "edit_report.title" %></h4>
+    </div>
+  </div>
+<% end %>
+
+<div id="report-data" class="hidden">
+  <% @report.report_parts.each do |report_part| %>
+    <%= render 'inspectors/reports/report_part', report_part: report_part %>
+  <% end %>
+</div>
+<div class="dashboard-wrapper__page">
+  <div class="edit-report with__wizard-actions">
+    <div class="js-create-report-primary-form">
+      <%= form for: @report, url: inspectors_create_report_index_path, method: :post, controller: 'create-report' do |f| %>
+        <%= render 'facilities/search', target: 'create-report.searchModal' %>
+        <div 
+          class="mt-6 js-report-edit-form" 
+          data-submission-path="<%= inspectors_report_path(@report) %>"
+          data-submission-method="put"
+          data-redirect-path="<%= completion_inspectors_create_report_index_path %>"
+          data-draft-path="<%= saved_as_draft_inspectors_create_report_index_path %>"
+          data-cancel-path="<%= cancel_inspectors_create_report_index_path %>"
+          data-home-path="<%= inspectors_root_path %>"
+        >
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

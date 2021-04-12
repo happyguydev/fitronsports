@@ -1,0 +1,196 @@
+<div>
+  <div>
+    <div class="grid grid-cols-2 mt-2">
+      <div class='flex content-end  flex-wrap'>
+        <h3 class="text-lg leading-6 font-medium text-gray-900">
+          <span class="text-base">Title: </span><%= @report.title.titleize %>
+        </h3>
+        <div>
+          <span class="ml-4 px-2 py-1 bg-blue-500 text-xs text-white font-semibold rounded-full">
+            <%= t("admin.reports.status.#{@report.status}") %>
+          </span>
+        </div>
+      </div>
+      <% unless action_name == 'show_public' %>
+        <div class='flex justify-end '>
+          <%= link_to t("admin.reports.actions.public_view"), "/public/report/#{@report.uid}", target: :_blank, class: "mr-1 inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="mt-6 sm:mt-5">
+
+    <div class="mt-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+      <label for="inspector_name" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+        <%= t("admin.reports.form.inspector_name") %>
+      </label>
+      <div class="mt-1 sm:mt-0 sm:col-span-2">
+        <div class="max-w-lg flex rounded-md">
+            <h1 class="text-base leading-6 font-medium text-gray-900">
+              <%= @report.inspector.complete_name.titleize %>
+            </h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+      <label for="facility_name" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+        <%= t("admin.reports.form.facility_name") %>
+      </label>
+      <div class="mt-1 sm:mt-0 sm:col-span-2">
+        <div class="max-w-lg flex rounded-md">
+          <h1 class="text-base leading-6 font-medium text-gray-900">
+            <%= @report.facility.name.titleize %>
+          </h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+      <label for="display_address" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+        <%= t("admin.reports.form.facility_address") %>
+      </label>
+      <div class="mt-1 sm:mt-0 sm:col-span-2">
+        <div class="max-w-lg flex rounded-md">
+          <h1 class="text-base leading-6 font-medium text-gray-900">
+            <%= @report.facility.display_address.titleize %>
+          </h3>
+        </div>
+      </div>
+    </div>
+
+    <% if @report.report_parts.any? %>
+      <div class="mt-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+        <label for="report_parts" class="block text-xl font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+          <%= t("admin.reports.report_part.title") %>
+        </label>
+      </div>
+      <% @report.report_parts.each do |part| %>
+        <div class='sm:ml-4'>
+          <div class="mt-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-6">
+            <label for="sent_at" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+              <%= t("admin.reports.report_part.form.title") %>
+            </label>
+            <div class="mt-1 sm:mt-0 sm:col-span-2">
+              <div class="max-w-lg flex rounded-md">
+                <h1 class="text-base leading-6 font-medium text-gray-900">
+                  <%= part.title.titleize %>
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-2 sm:pl-3">
+            <label for="sent_at" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+              <%= t("admin.reports.report_part.form.product") %>
+            </label>
+            <div class="mt-1 sm:mt-0 sm:col-span-2">
+              <div class="max-w-lg flex rounded-md">
+                <h1 class="text-base leading-6 font-medium text-gray-900">
+                  <%= part.product.title.titleize %>
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-2 sm:pl-3">
+            <label for="sent_at" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+              <%= t("admin.reports.report_part.form.description") %>
+            </label>
+            <div class="mt-1 sm:mt-0 sm:col-span-2">
+              <div class="max-w-lg flex rounded-md">
+                <h1 class="text-base leading-6 font-medium text-gray-900">
+                  <%= part.description %>
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-2 sm:pl-3">
+            <label for="sent_at" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+              <%= t("admin.reports.report_part.form.rate") %>
+            </label>
+            <div class="mt-1 sm:mt-0 sm:col-span-2">
+              <div class="max-w-lg flex rounded-md">
+                <h1 class="text-base leading-6 font-medium text-gray-900">
+                  <%= part.rate.humanize %>
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <% if part.attachments.any? %>
+            <div class="mt-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-2 sm:pl-3">
+              <label for="username" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+                <%= t("admin.reports.report_part.form.attachment") %>
+              </label>
+              <div class="mt-1 sm:mt-0 sm:col-span-2">
+                <div class="max-w-lg flex rounded-md">
+                  <h1 class="text-base leading-6 font-medium text-gray-900">
+                    
+                    <% part.attachments.each do |a| %>
+                      <%= link_to a.image.identifier, a.image.url, :target => '_blank', class: "text-teal-500" %> (<%= a.note %>)
+                    <% end %>
+                  </h3>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <div class="mt-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+      <label for="sent_at" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+        <%= t("admin.reports.form.signature") %>
+      </label>
+      <div class="mt-1 sm:mt-0 sm:col-span-2">
+        <div class="max-w-lg flex rounded-md">
+          <h1 class="text-base leading-6 font-medium text-gray-900">
+            <%= image_tag(@report.signature.image.url) %>
+            (<%= @report.signature.note %>)
+          </h3>
+        </div>
+      </div>
+    </div>
+  
+    <div class="mt-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+      <label for="sent_at" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+        <%= t("admin.reports.form.sent_at") %>
+      </label>
+      <div class="mt-1 sm:mt-0 sm:col-span-2">
+        <div class="max-w-lg flex rounded-md">
+          <h1 class="text-base leading-6 font-medium text-gray-900">
+            <%= @report.sent_at %>
+          </h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+      <label for="accepted_at" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+        <%= t("admin.reports.form.accepted_at") %>
+      </label>
+      <div class="mt-1 sm:mt-0 sm:col-span-2">
+        <div class="max-w-lg flex rounded-md">
+          <h1 class="text-base leading-6 font-medium text-gray-900">
+            <%= @report.accepted_at %>
+          </h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+      <label for="username" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+        <%= t("admin.reports.form.rejected_at") %>
+      </label>
+      <div class="mt-1 sm:mt-0 sm:col-span-2">
+        <div class="max-w-lg flex rounded-md">
+          <h1 class="text-base leading-6 font-medium text-gray-900">
+            <%= @report.rejected_at %>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

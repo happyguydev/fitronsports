@@ -1,0 +1,15 @@
+<template>
+  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="6" cy="6" r="1.25" fill="#232527"/>
+    <circle cx="6" cy="10.75" r="1.25" fill="#232527"/>
+    <circle cx="6" cy="1.25" r="1.25" fill="#232527"/>
+  </svg>
+</template>
+
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
+  name: 'DotsIcon',
+});
+</script>

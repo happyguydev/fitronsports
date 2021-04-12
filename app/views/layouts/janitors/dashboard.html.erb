@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'shared/head' %>
+  </head>
+
+  <body class="dashboard <%= body_class %>" data-dashboard="true">
+    <div class="flex flex-col min-h-screen h-full">
+    
+      <%= render 'janitors/dashboard/header' %>
+
+      <div class="dashboard-wrapper js-dashboard-wrapper <%= controller.controller_name == 'dashboard' ? 'above-bottom-tabs' : '' %>" data-header-visible='true'>
+        <%= render 'shared/notices' %>
+
+        <div class="content">
+          <%= yield %>
+        </div>
+      </div>
+
+      <% if controller.controller_name == 'dashboard' %>
+        <%= render 'janitors/dashboard/tabs' %>
+      <% end %>
+    </div>
+  </body>
+  
+  <%= render 'shared/scripts' %>
+</html>

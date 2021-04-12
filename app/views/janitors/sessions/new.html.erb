@@ -1,0 +1,39 @@
+
+<div class="session-page">
+  <div class="panel">
+    <div class="mb-16 w-full">
+      <div class="flex flex-row w-full justify-center">
+        <%= image_tag 'logo', class: 'object-contain mb-10 w-48', alt: t('site_name') %>
+      </div>
+
+      <%= form for: resource, as: resource_name, url: session_path(resource_name), redirect: janitors_root_path do |f| %>
+        <%= f.alert :error %>
+
+        <div class="form__inputs">
+          <%= f.input :email, required: true,
+            input_html: { autocomplete: "email" }, icon: :email, placeholder: t("devise.common.email") %>
+
+          <%= f.input :password, required: true,
+            input_html: { autocomplete: "current-password" }, icon: :lock, placeholder: t("devise.common.password") %>
+        </div>
+
+        <%= f.input :remember_me, as: :hidden, value: true, wrapper: false %>
+
+        <%= f.submit t("devise.sessions.new.login"), class: 'mt-4 w-full', disabled: true %>
+
+        <div class="flex flex-row justify-between mt-6 md:mt-8">
+          <%= link_to t("devise.sessions.new.forgot_password"), new_janitor_password_path(resource), class: 'text-primary-500' %>
+          <%= link_to t("devise.sessions.new.create_account"), new_janitor_registration_path(resource), class: 'text-primary-500' %>
+        </div>
+
+        <% if session[:src_pwa] %>
+          <div class="flex flex-row mt-8 justify-center">
+            <%= link_to t("devise.sessions.new.login_as_auditor"), new_inspector_session_path, class: 'text-grey-500' %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <%= render 'shared/session_illustration' %>
+</div>

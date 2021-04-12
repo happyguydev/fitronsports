@@ -1,0 +1,45 @@
+/*! purgecss start ignore */
+.flashes {
+  @apply flex-col w-full hidden;
+}
+
+.flashes--present {
+  @apply flex;
+}
+
+.flash {
+  @apply py-2 px-4 rounded-md text-sm w-full;
+  @apply transition-all duration-300 ease-in-out opacity-100;
+
+  @screen md {
+    @apply rounded-none;
+  }
+
+  &--success {
+    @apply bg-yellow-300 border-yellow-300 text-yellow-800;
+  }
+
+  &--notice {
+    @apply bg-yellow-300;
+    @apply border-yellow-800;
+    @apply text-yellow-800;
+  }
+
+  &--alert {
+    @apply bg-red-300;
+    @apply border-red-800;
+    @apply text-red-800;
+  }
+
+  &__inner {
+    @screen md {
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      max-width: 1140px;
+      @apply w-full;
+    }
+  }
+}
+/*! purgecss end ignore */

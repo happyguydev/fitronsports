@@ -1,0 +1,55 @@
+<%= form for: resource, as: resource_name, url: registration_path(resource_name), controller: 'janitor-registration', redirect: janitors_after_signup_index_path do |f| %>
+  <%= f.alert :error, controller: 'janitor-registration' %>
+
+  <div class="flex flex-col md:flex-row md:-mt-2">
+     <%= f.inputs t("devise.registrations.account_details"), class: 'md:w-full' do %>
+      <%= f.input :email, required: true,
+        input_html: { autocomplete: "email" }, icon: :email, placeholder: t("devise.common.email") %>
+
+      <%= f.input :phone_number, required: true, placeholder: t("common.phone_number"),
+        input_html: { autocomplete: "tel-national" }, as: :numeric, icon: :phone %>
+
+      <div class="flex flex-col" data-controller="password">
+        <%= f.input :password, label: false, placeholder: t("devise.common.password"),
+          required: true,
+          input_html: {
+            'data-target': 'password.input',
+            autocomplete: "password",
+          }, icon: :lock %>
+        <div class="flex flex-col" data-target="password.animate">
+          <ul class="list-disc ml-6 text-sm" data-target="password.hints" data-hint-texts="<%= [t("common.password_hint.at_least_8")].join(",") %>"></ul>
+        </div>
+      </div>
+    <% end %>
+
+    <%= f.inputs t("devise.registrations.facility_details"), class: 'mt-2 md:w-full md:ml-5' do %>
+      <%= f.association :facility, as: :hidden, wrapper: false, required: true, input_html: { value: @facility&.id } %>
+
+      <input
+        type="button"
+        name="janitor[facility_name]"
+        class="field <% unless @facility.present? %>text-grey-500<% end %> -mt-2 facility-input"
+        data-action="click->janitor-registration#openSearch"
+        data-target="janitor-registration.facilitySearch"
+        data-facility-id="<%= @facility&.id %>"
+        value="<%= @facility.present? ? @facility.name : t("common.facility.search_by_name") %>">
+    <% end %>
+
+  </div>
+
+  <div class="mt-4">
+    <label class="block">
+      <input type="checkbox" name="janitor[terms_of_service]" value="true" class="mr-2 form-checkbox" aria-required="true">
+      <span class="text-m">
+        <%= t("devise.registrations.hint_part_1") %>
+        <%= link_to t("devise.registrations.terms_of_services"), policies_terms_path, class: 'text-primary-500' %>
+        <%= t("devise.registrations.hint_part_2") %>
+        <%= link_to t("devise.registrations.privacy_policy"), policies_privacy_path, class: 'text-primary-500' %>.
+      </span>
+    </label>
+  </div>
+
+  <%= f.submit t("common.continue"), class: 'mt-8 w-full' %>
+
+  <%= render 'facilities/search', target: 'janitor-registration.searchModal' %>
+<% end %>

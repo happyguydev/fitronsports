@@ -1,0 +1,33 @@
+/*! purgecss start ignore */
+
+.toolbar {
+  @extend .container;
+  @apply flex flex-row justify-between items-center bg-white;
+  @apply py-5;
+
+  @screen md{
+    @apply hidden;
+  }
+  
+  &__title {
+    @apply hidden;
+
+    @screen md {
+      @apply flex;
+    }
+  }
+
+  &__actions {
+    @apply flex flex-row items-center;
+
+    li {
+      @apply ml-6;
+    }
+  }
+}
+
+.below-toolbar {
+  @apply pt-12;
+}
+
+/*! purgecss end ignore */

@@ -1,0 +1,41 @@
+<%= form for: resource, as: resource_name, url: registration_path(resource_name), controller: 'janitor-registration' do |f| %>
+  <%= f.alert :error %>
+
+  <%= f.inputs 'Your Account Details' do %>
+    <%= f.input :email, required: true,
+      input_html: { autocomplete: "email" }, icon: :email %>
+
+    <%= f.input :phone_number, required: true,
+      input_html: { autocomplete: "tel-national" }, type: :number, icon: :phone %>
+
+    <div class="flex flex-col" data-controller="password">
+      <%= f.input :password, label: false, placeholder: 'Password',
+        required: true,
+        input_html: {
+          'data-target': 'password.input',
+          autocomplete: "password",
+        }, icon: :lock %>
+            
+      <div class="flex flex-col" data-target="password.animate">
+        <ul class="list-disc ml-6 text-sm" data-target="password.hints"></ul>
+      </div>
+    </div>
+  <% end %>
+
+  <%= f.inputs "What's your sport facility?", class: 'mt-2' do %>
+    <%= f.association :facility, as: :hidden, wrapper: false, required: true %>
+
+    <button
+      type="button"
+      class="field text-grey-500 facility-input"
+      data-action="janitor-registration#openSearch"
+      data-target="janitor-registration.facilitySearch"
+    >
+      Search by name...
+    </button>
+  <% end %>
+
+  <%= f.submit 'Sign Up', class: 'mt-3 w-full' %>
+
+  <%= render 'facilities/search', target: 'janitor-registration.searchModal' %>
+<% end %>

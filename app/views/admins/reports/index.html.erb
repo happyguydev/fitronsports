@@ -1,0 +1,20 @@
+
+
+<div class="grid grid-cols-1">
+  <div class="my-4">
+    <span class="relative z-0 inline-flex shadow-sm rounded-md">
+      <%= link_to t("admin.common.nav_filter.all"), admins_reports_url, class: "font-#{params[:query] ? 'thin' : 'black'} relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm leading-5 text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150" %>
+      <%= link_to t("admin.common.nav_filter.sending_errors"), admins_reports_url(query: 'failed'), class: "font-#{params[:query]=='failed' ? 'black' : 'light'} -ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150" %>
+      <%= link_to t("admin.common.nav_filter.needs_action"), admins_reports_url(query: 'sent'), class: "font-#{params[:query]=='sent' ? 'black' : 'light'} -ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150" %>
+      <%= link_to t("admin.common.nav_filter.completed"), admins_reports_url(query: 'accept'), class: "font-#{params[:query]=='accept' ? 'black' : 'light'} -ml-px relative inline-flex items-center px-4 py-2 border rounded-r-md border-gray-300 bg-white text-sm leading-5 text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150" %>
+    </span>
+  </div>
+  <%= render 'admins/shared/alerts' %>
+  <div class="bg-white shadow overflow-hidden sm:rounded-md">
+    <ul>
+      <% @reports.each do |report| %>
+        <%= render 'admins/reports/report', report: report %>
+      <% end %>
+    </ul>
+  </div>
+</div>

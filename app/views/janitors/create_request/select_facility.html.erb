@@ -1,0 +1,31 @@
+<div class="create-request wizard">
+  <div class="wizard-header">
+    <h1 class="create-request__title">
+      <%= I18n.t 'create_request.select_facility.title'  %>
+    </h1>
+  </div>
+
+  <%= form for: @request, url: wizard_path, method: :put, redirect: next_wizard_path, controller: 'create-request' do |f| %>
+    <%= f.alert :error %>
+
+    <%= f.inputs I18n.t 'create_request.select_facility.field_title', class: 'mt-2' do %>
+      <%= f.input :facility_id, as: :hidden, wrapper: false, required: true %>
+
+      <button
+        type="button"
+        class="field <% unless @request.facility %>text-grey-500<% end %> facility-input"
+        data-action="create-request#openSearch"
+        data-target="create-request.facilitySearch"
+      >
+        <% if @request.facility %>
+          <%= @request.facility.name %>
+        <% else %>
+          <%= t("common.facility.search_by_name") %>
+        <% end %>
+      </button>
+    <% end %>
+
+    <%= render 'wizard/actions', form: f %>
+    <%= render 'facilities/search', target: 'create-request.searchModal' %>
+  <% end %>
+</div>

@@ -1,0 +1,62 @@
+/*! purgecss start ignore */
+.attachment {
+  @apply flex flex-col mb-2;
+}
+
+.attachment__header {
+  @apply relative;
+}
+
+.attachment__overlay {
+  @apply absolute inset-0;
+  @apply flex flex-row justify-between;
+  padding: 8px;
+}
+
+.attachment__image {
+  @apply w-full;
+}
+
+.attachment__image img {
+  @apply w-full;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.attachment__body {
+  @apply mt-1;
+}
+
+.attachment__button {
+  @apply flex items-center justify-center;
+  width: 32px;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+}
+
+.attachment__note {
+  @apply bg-white;
+  @apply outline-none w-full h-full;
+  @apply p-4;
+  border-radius: 6px;
+
+  &:focus {
+    @apply outline-none;
+  }
+
+  &::placeholder {
+    color: $placeholder-color;
+  }
+}
+
+.attachment {
+  textarea {
+    @apply w-full;
+
+    &:focus {
+    }
+  }
+}
+
+/*! purgecss end ignore */

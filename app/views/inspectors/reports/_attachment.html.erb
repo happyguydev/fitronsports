@@ -1,0 +1,39 @@
+<% form = local_assigns[:form] %>
+<div id="<%= dom_id(attachment) %>" class="attachment">
+  <div class="attachment__header">
+    <% if form %>
+      <div class="attachment__overlay">
+        <div></div>
+        <button
+          type="button"
+          class="attachment__button"
+          @click="removeFormAttachment"
+          data-dom-id="<%= dom_id(attachment) %>"
+          data-attachment-index="<%= form.options[:child_index] %>"
+        >
+          <%= icon :remove %>
+        </button>
+      </div>
+
+      <%= form.hidden_field :_destroy %>
+    <% end %>
+
+    <% if attachment.image? %>
+      <div class="attachment__image">
+        <%= image_tag(attachment.image_url) %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if form %>
+    <div class="attachment__body">
+      <div class="field attachment__note">
+        <%= form.text_area :note %>
+      </div>
+    </div>
+  <% elsif attachment.note %>
+    <div class="attachment__body">
+      <div class="attachment__note"><%= attachment.note %></div>
+    </div>
+  <% end %>
+</div>

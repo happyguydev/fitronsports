@@ -1,0 +1,15 @@
+<div class="grid grid-cols-1">
+  <div class="my-4">
+    <a href="/admins/products/new" class="bg-transparent hover:bg-blue-500 text-blue-700 font-medium hover:text-white py-2 px-3 border border-blue-500 hover:border-transparent rounded">
+      <%= t("admin.products.new_product") %>
+    </a>
+  </div>
+  <%= render 'admins/shared/alerts' %>
+  <div class="bg-white shadow overflow-hidden sm:rounded-md">
+    <ul>
+      <% @products.each do |product| %>
+        <%= render 'admins/products/product', product: product %>
+      <% end %>
+    </ul>
+  </div>
+</div>

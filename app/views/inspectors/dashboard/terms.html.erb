@@ -1,0 +1,17 @@
+<div class="hidden md:flex flex-col w-full">
+  <div class="header-nav--wrapper">
+    <div class="header-nav">
+      <h4 class="text-grey-800">
+        <%= link_to t("inspectors.dashboard.header.home"),inspectors_dashboard_path, class: 'breadcrumb' %>
+      </h4> &nbsp;&nbsp;
+      <%= icon :right %>&nbsp;&nbsp;
+      <h4 class="text-grey-400">
+        <%= t "menu.terms_of_services" %>
+      </h4>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper__page">
+  <%= render "shared/terms" %>
+</div>

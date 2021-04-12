@@ -1,0 +1,28 @@
+<header class="dashboard-header js-dashboard-header" data-controller="dashboard-header">
+  <nav class="dashboard-header__nav">
+    <%= link_to janitors_dashboard_path do %>
+      <%= image_tag :logo, class: 'fitron-logo' %>
+    <% end %>
+
+    <ul class="dashboard-header__links">
+      <%= dashboard_header_link_to t("janitors.dashboard.header.home"), janitors_dashboard_path %>
+      <%= dashboard_header_link_to t("janitors.dashboard.header.profile"), janitors_dashboard_profile_path %>
+      <%= dashboard_header_link_to t("janitors.dashboard.header.create_request"), janitors_create_request_index_path %>
+    </ul>
+
+    <button
+      class="mb-2"
+      type="button"
+      aria-label="Open Menu"
+      data-action="click->dashboard-header#openMenu"
+    >
+      <%= icon :menu %>
+    </button>
+  </nav>
+
+  <div class="dashboard-header__extra">
+    <%= yield :header %>
+  </div>
+
+  <%= render 'janitors/dashboard/menu' %>
+</header>

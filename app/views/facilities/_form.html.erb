@@ -1,0 +1,40 @@
+<%= form for: @facility, controller: 'new-facility-form' do |f| %>
+  <%= f.alert :error, controller: 'new-facility-form' %>
+
+  <div class="flex flex-col md:flex-row">
+    <div class="flex flex-col w-full">
+      <%= f.inputs t("common.name") do %>
+        <%= f.input :name, placeholder: t("facility_create.name"), required: true %>
+      <% end %>
+
+      <%= f.inputs t("common.type") do %>
+        <%= f.input :facility_type, as: :select,
+              prompt: t("facility_create.choose_type"), collection: Facility.facility_types.keys,
+              required: true %>
+      <% end %>
+
+      <%= f.inputs t("facility_create.municipal_contact") do %>
+        <%= f.input :contact_name, placeholder: t("facility_create.contact_name"), required: true %>
+        <%= f.input :contact_email, placeholder: t("facility_create.contact_email"), required: true %>
+      <% end %>
+    </div>
+
+    <div class="flex flex-col w-full md:ml-6">
+      <%= f.inputs t("common.address") do %>
+        <%= f.input :street_line1, placeholder: t("common.street_name"), required: true %>
+        <%= f.input :street_line2, placeholder: t("common.street_address") %>
+        <%= f.input :postal_code, as: :numeric, placeholder: t("common.postal_code"), required: true %>
+        <%= f.input :city, placeholder: t("common.city_town"), required: true %>
+      <% end %>
+    </div>
+  </div>
+  
+
+  <div class="flex flex-row justify-around mt-5 mb-10">
+    <button class="js-back-button button button--outline h-full w-1/2 mr-3" type="button">
+      <%= t("common.cancel") %>
+    </button>
+    
+    <%= f.submit t("common.add"), class: 'ml-3 w-1/2' %>
+  </div>
+<% end %>

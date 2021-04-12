@@ -1,0 +1,52 @@
+/*! purgecss start ignore */
+
+.alert {
+  @apply p-4;
+  @apply rounded-sm;
+  @apply flex flex-row justify-between;
+  @apply flex-row;
+  @apply transition-all duration-300 ease-in-out;
+  @apply h-auto;
+  @apply opacity-100;
+
+  &--hidden {
+    @apply h-0;
+    @apply opacity-0;
+  }
+
+  &--error {
+    @apply bg-red-300;
+    @apply border-red-800;
+    @apply text-red-800;
+  }
+
+  &--success {
+    @apply bg-green-400;
+    @apply border-green-800;
+    @apply text-green-800;
+  }
+
+  &__wrapper {
+    @apply flex flex-col flex-1;
+    @apply justify-start items-start;
+  }
+
+  &__title {
+    font-size: 0.95em;
+  }
+
+  &__close {
+    @apply flex flex-col;
+  }
+}
+
+form {
+  .alert {
+    @apply w-full;
+    @apply mb-4;
+
+    &--hidden {
+      @apply -mb-4;
+    }
+  }
+}

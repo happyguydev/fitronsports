@@ -1,0 +1,120 @@
+/*! purgecss start ignore */
+
+.modal {
+  @apply fixed inset-0 z-50 hidden w-full h-full;
+}
+
+.modal--visible {
+  @apply flex;
+}
+
+// MARK: - Modifiers
+
+.modal--center {
+  @apply justify-center items-center;
+
+  .modal__content {
+    @apply max-w-2xl w-full rounded-sm shadow-md;
+  }
+}
+
+.modal--left {
+  @apply justify-start items-start;
+
+  .modal__content {
+    @apply h-full;
+    min-width: 30vw;
+  }
+}
+
+.modal--right {
+  @apply justify-end items-end;
+
+  .modal__content {
+    @apply h-full;
+  }
+}
+
+.modal--top {
+  @apply justify-start items-start flex-col;
+
+  .modal__content {
+    @apply w-full;
+  }
+}
+
+.modal--bottom {
+  @apply justify-end items-end flex-col;
+
+  .modal__content {
+    @apply w-full;
+  }
+}
+
+.modal--full {
+  @apply items-end;
+
+  .modal__content {
+    @apply w-full;
+
+    transform: translateY(100%);
+    height: calc(100% - 2.5rem);
+  }
+
+  @screen md {
+    .modal__content {
+      @apply max-w-xl w-full rounded-md;
+      @apply mx-auto my-auto;
+      max-height: 600px;
+
+      transform: translateY(20%);
+      opacity: 0;
+    }
+  }
+}
+
+.modal--screen {
+  @apply items-end;
+
+  .modal__content {
+    @apply w-full;
+
+    transform: translateX(100%);
+    height: 100%;
+  }
+}
+
+// MARK: - Elements
+
+.modal__header {
+  @apply flex flex-row justify-between px-4 py-3;
+  @apply border-b border-gray-200 mb-3;
+}
+
+.modal__overlay {
+  @apply absolute inset-0 transition-all ease-in-out duration-300;
+  z-index: -1;
+  background: transparent;
+}
+
+.modal__overlay--visible {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal__content {
+  @apply bg-white shadow-sm z-50;
+  @apply flex flex-col transition-all ease-in-out duration-300;
+}
+
+.modal__content--visible {
+  transform: translateY(0) translateX(0) !important;
+  opacity: 1 !important;
+}
+
+.modal__body {
+  @apply px-4 flex-1 overflow-auto;
+}
+
+.modal__footer {
+  @apply border-t border-gray-200 py-3 px-8;
+}

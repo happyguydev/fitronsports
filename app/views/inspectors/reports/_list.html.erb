@@ -1,0 +1,36 @@
+<% filters = ['all', *Report.statuses.keys.select{|k| k != 'archived'}] %>
+
+<div data-controller="report-list">
+  <div class="flex flex-row justify-between">
+    <div class="flex flex-row flex-1">
+      <% filters.each do |status_type| %>
+        <button
+          type="button"
+          class="pill"
+          data-filter="<%= status_type %>"
+          data-action="click->report-list#filter"
+          data-target="report-list.filter"
+        >
+          <span class="pill__title"><%= t "report.status.#{status_type.to_s}" %></span>
+        </button>
+      <% end %>
+    </div>
+    <div class="hidden md:flex">
+      <%= link_to new_inspectors_create_report_path, data: {turbolinks: false} do %>
+        <%= icon :add_outline_circle %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="flex flex-col md:flex-row md:flex-wrap mt-6">
+    <% @reports.each do |report| %>
+      <div
+        id="<%= dom_id report %>"
+        class="hidden report-list__item"
+        data-target="report-list.report"
+        data-filter="<%= report.status %>">
+        <%= render 'inspectors/reports/item', report: report %>
+      </div>
+    <% end %>
+  </div>
+</div>

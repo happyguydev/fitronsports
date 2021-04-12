@@ -1,0 +1,81 @@
+/*! purgecss start ignore */
+.reports.reports--show {
+  .content{
+    @apply bg-white;
+  }
+  
+  .dashboard-wrapper {
+    @apply max-w-full mx-0 px-0 #{!important};
+
+    &__page {
+      max-width: 45.5rem;
+    }
+  }
+
+  .back-button {
+    @apply hidden;
+  }
+
+  .toolbar {
+    @apply pt-0;
+  }
+
+  .below-toolbar {
+    @apply pt-0;
+  }
+
+  .content {
+    @apply flex-1 h-full mt-0 pt-0;
+    @extend .alt-background;
+  }
+
+  .dashboard-wrapper {
+    @apply mt-0;
+  }
+}
+
+.report-show__header-padding {
+  height: 3.25rem;
+  @screen md {
+    @apply hidden;
+  }
+}
+
+.report-show__header-detail {
+  @screen md{
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.report-flag {
+  @apply flex flex-row;
+
+  &__icon {
+    @apply mr-4;
+  }
+
+  &__title {
+    font-size: 13px;
+    line-height: 15px;
+    color: #a7a7a7;
+  }
+
+  &__detail {
+    @apply font-medium mt-1;
+    line-height: 19px;
+  }
+
+  &__description {
+    line-height: 22px;
+  }
+}
+
+.report-show__detail {
+  @apply pb-6;
+  @screen md {
+    @apply w-full mx-auto;
+    @apply px-0;
+  }
+}
+/*! purgecss end ignore */

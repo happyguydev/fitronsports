@@ -1,0 +1,9 @@
+<div class="<%= row.root_class %>">
+  <% if row.icon %>
+    <div class="row__icon"><%= row.view.icon row.icon %></div>
+  <% end %>
+
+  <div class="<%= row.details_class %>">
+    <div class="row__title"><%= row.title %></div>
+  </div>
+</div>

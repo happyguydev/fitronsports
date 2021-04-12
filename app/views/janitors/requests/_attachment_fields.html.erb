@@ -1,0 +1,26 @@
+<div class="attachment">
+  <div class="attachment__header">
+    <div class="attachment__overlay">
+      <button type="button" class="attachment__action">
+        <%= icon :attachment_edit %>
+      </button>
+
+      <button
+        type="button"
+        class="attachment__action"
+        data-action="click->nested-form#removeAssociation"
+      >
+        <%= icon :attachment_remove %>
+      </button>
+    </div>
+
+    <div class="attachment__image">
+    </div>
+  </div>
+
+  <div class="attachment__body">
+    <%= form.text_field :note, placeholder: "Add a note to your photo" %>
+  </div>
+
+  <%= form.hidden_field :_destroy, data: { target: 'nested-form.destroy' }  %>
+</div>

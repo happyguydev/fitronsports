@@ -1,0 +1,17 @@
+<div data-controller="request-attachments">
+  <template data-target="request-attachments.template">
+    <%= form.fields_for :attachments, RequestAttachment.new, index: 'TEMPLATE_RECORD' do |attachment| %>
+      <%= render 'requests/attachment_fields', form: attachment %>
+    <% end %>
+  </template>
+
+  <%= form.fields_for :attachments, RequestAttachment.new, index: 0 do |attachment| %>
+    <%= render 'requests/attachment_fields', form: attachment %>
+  <% end %>
+
+  <div data-target="request-attachments.links">
+    <button type="button" data-action="click->request-attachments#addAssociation">
+      Add Photo
+    </button>
+  </div>
+</div>

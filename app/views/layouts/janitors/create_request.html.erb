@@ -1,0 +1,25 @@
+<%= content_for :head do %>
+  <%= stylesheet_pack_tag :create_request, 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag :create_request, 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'shared/head' %>
+  </head>
+
+  <body class="dashboard <%= body_class %>" data-dashboard="true">
+    <div class="flex flex-col min-h-screen h-full">
+      <div class="dashboard-wrapper js-dashboard-wrapper"  data-header-visible='false'>
+        <div class="content">
+          <div class="dashboard-wrapper__page">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  
+  <%= render 'shared/scripts' %>
+</html>

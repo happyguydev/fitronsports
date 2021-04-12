@@ -1,0 +1,13 @@
+/*! purgecss start ignore */
+.info-block {
+  &__title {
+    @apply mb-2;
+    color: hsl(0, 0%, 65%);
+  }
+
+  &__detail {
+    @apply font-medium;
+    line-height: 19px;
+  }
+}
+/*! purgecss end ignore */

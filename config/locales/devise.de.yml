@@ -1,0 +1,65 @@
+de:
+  devise:
+    confirmations:
+      confirmed: "Ihre E-Mail Adresse wurde erfolgreich bestätigt."
+      send_instructions: "Sie erhalten in Kürze ein E-Mail mit Instruktionen, um Ihre E-Mail Adresse zu bestätigen."
+      send_paranoid_instructions: "Ist Ihre E-Mail Adresse bereits in unserem System vorhanden, so erhalten Sie von uns in Kürze ein E-Mail, um Ihre E-Mail Adresse zu bestätigen."
+    failure:
+      already_authenticated: "Sie sind bereits eingeloggt."
+      inactive: "Ihr Account wurde noch nicht aktiviert."
+      invalid: "Ungültiges Passwort oder %{authentication_keys}."
+      locked: "Ihr Account wurde gesperrt."
+      last_attempt: "Sie hab noch einen Versuch übrig, bevor Ihr Account gesperrt wird."
+      not_found_in_database: "Ungültiges Passwort oder %{authentication_keys}."
+      timeout: "Ihre Sitzung ist abgelaufen. Bitte loggen Sie sich erneut ein, um fortzufahren."
+      unauthenticated: "Sie müssen sich einlogged oder registrieren, um fortzufahren."
+      unconfirmed: "Sie müssen Ihre E-Mail Adresse bestätigen, um fortzufahren."
+    mailer:
+      confirmation_instructions:
+        subject: "Bestätigen Sie Ihre E-Mail Adresse"
+      reset_password_instructions:
+        subject: "Passwort zurücksetzen"
+      unlock_instructions:
+        subject: "Entsperren Ihres Accounts"
+      email_changed:
+        subject: "Ihre E-Mail Adresse wurde geändert"
+      password_change:
+        subject: "Ihr Passwort wurde geändert"
+    omniauth_callbacks:
+      failure: "Wir konnten Sie von \"%{kind}\" nicht authentifizieren, da \"%{reason}\"."
+      success: "Erfolgreich authentifiziert von Account \"%{kind}\"."
+    passwords:
+      no_token: "Zugang zu dieser Seite erhalten Sie ausschließlich, durch einen Link in einer \"Passwort Zurücksetzen\" - E-Mail. Sollten durch einen solchen Link hierher gekommen sein, überprüfen Sie bitte Ihren Link auf Vollständigkeit. Sollte das Problem weiterhin bestehen, kontaktieren Sie bitte unseren Support." 
+      send_instructions: "Sie erhalten in Kürze ein E-Mail, um Ihr Passwort zurückzusetzen."
+      send_paranoid_instructions: "Ist Ihre E-Mail Adresse bereits in unserem System vorhanden, so erhalten Sie in Kürze ein E-Mail, um ihr Passwort zurückzusetzen."
+      updated: "Ihr Passwort wurde erfolgreich geändert. Sie sind jetzt eingeloggt."
+      updated_not_active: "Ihr Passwort wurde erfolgreich geändert."
+      password: "Neues Passwort"
+      password_confirmation: "Neues Passwort bestätigen"
+    registrations:
+      destroyed: "Auf Wiedersehen! Ihr Account wurd gelöscht. Wir hoffen darauf, Sie bald wieder begrüßen zu dürfen."
+      signed_up: "Herzlich willkommen! Sie haben sich erfolgreich registriert."
+      signed_up_but_inactive: "Sie haben sich erfolgreich registriert. Um sich einlogged zukönnen, müssen Sie Ihren Account jedoch zuerst via E-Mail aktivieren."
+      signed_up_but_locked: "Sie haben sich erfolgreich registriert. Wir konnten Sie jedoch nicht einloggen, Ihr Account ist derzeit leider gesperrt."
+      signed_up_but_unconfirmed: "Sie haben von eine E-Mail mit einem Bestätigungslink erhalten. Bitte folgen Sie diesem Link, um Ihren Account zu aktivieren."
+      update_needs_confirmation: "Sie haben Ihren Account erfolgreich aktualisiert und eine E-Mail von uns erhalten. Um Ihre neue E-Mail Adresse zu übernehmen, folgen Sie bitte dem darin enthaltenen Bestätigungslink."
+      updated: "Ihr Account wurde erfolgreich aktualisiert."
+      updated_but_not_signed_in: "Ihr Passwort wurde erfolgreich aktualisiert. Bitte loggen Sie sich erneut ein."
+    sessions:
+      signed_in: "Sie haben sich erfolgreich eingeloggt."
+      signed_out: "Sie haben sich erfolgreich ausgeloggt."
+      already_signed_out: "Sie haben sich erfolgreich ausgeloggt."
+    unlocks:
+      send_instructions: "Sie erhalten in Kürze ein E-Mail, um Ihren Account zu entsperren."
+      send_paranoid_instructions: "Wenn Ihr Account existiert, erhalten Sie in Kürze eine E-Mail, um Ihren Account zu entsperren."
+      unlocked: "Ihr Account wurde erfolgreich entsperrt. Bitte loggen Sie sich ein, um fortzufahren."
+  errors:
+    messages:
+      already_confirmed: "wurde bereits bestätigt. Bitte versuchen Sie sich einzuloggen."
+      confirmation_period_expired: "muss innerhalb von %{period} bestätigt werden. Bitte fordern Sie ein neues an."
+      expired: "ist abgelaufen, bitte fordern Sie ein neues an."
+      not_found: "nicht gefunden"
+      not_locked: "war nicht gesperrt"
+      not_saved:
+        one: "Wegen eines Fehler konnte %{resource} nicht gespeichert werden:"
+        other: "Wegen %{count} Fehler konnte %{resource} nicht gespeichert werden:"

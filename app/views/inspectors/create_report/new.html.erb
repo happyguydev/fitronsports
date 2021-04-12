@@ -1,0 +1,36 @@
+<%= content_for :header do %>
+  <div class="toolbar js-dashboard-toolbar md:hidden">
+    <div class="toolbar__back">
+      <%= icon_link_to :back, '#', class: 'js-wizard-back' %>
+    </div>
+
+    <ul class="toolbar__actions">
+      <li><%= icon_link_to :edit, '#', class: 'js-edit-report-title' %></li>
+      <li><%= icon_link_to :trash, inspectors_root_path, data: { confirm: t("report.delete_confirm") }, class: 'js-delete-report'  %></li>
+    </ul>
+  </div>
+  <div class="header-nav--wrapper">
+    <div class="header-nav">
+      <h4 class="text-grey-800"><%= t "janitors.dashboard.header.home" %></h4> &nbsp;&nbsp;<%= icon :right %>&nbsp;&nbsp;<h4 class="text-grey-400"><%= t "create_report.title" %></h4>
+    </div>
+  </div>
+<% end %>
+
+<%= render "inspectors/reports/report_info", report: @report %>
+
+<div class="create-report with__wizard-actions">
+  <div class="js-create-report-primary-form">
+    <%= form for: @report, url: inspectors_create_report_index_path, method: :post, controller: 'create-report' do |f| %>
+      <%= render 'facilities/search', target: 'create-report.searchModal' %>
+      <div 
+        class="mt-6 js-report-create-form" 
+        data-submission-path="<%= inspectors_create_report_index_path %>"
+        data-submission-method="post"
+        data-cancel-path="<%= cancel_inspectors_create_report_index_path %>"
+        data-home-path="<%= inspectors_root_path %>"
+      >
+      </div>
+
+    <% end %>
+  </div>
+</div>

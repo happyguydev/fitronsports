@@ -1,0 +1,21 @@
+<footer class="bottom-tabs dashboard-tabs">
+  <nav class="bottom-tabs__wrapper">
+    <ul class="bottom-tabs__list">
+      <li class="tab <%= active_tab?(:home) ? 'tab--active' : '' %>">
+        <%= link_to janitors_dashboard_path do %>
+          <%= icon :home, class: 'w-8 h-8' %>
+        <% end %>
+      </li>
+      <li class="tab tab__create-request">
+        <%= link_to janitors_create_request_index_path, data: {turbolinks: false} do %>
+          <%= icon :add_outline_circle, id: 'plus' %>
+        <% end %>
+      </li>
+      <li class="tab <%= active_tab?(:profile) ? 'tab--active' : '' %>">
+        <%= link_to janitors_dashboard_profile_path do %>
+          <%= icon :person, class: 'w-6 h-6' %>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
+</footer>

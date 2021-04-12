@@ -1,0 +1,9 @@
+<div id="flashes" class="js-flashes flashes <% if flash.any? && account_signed_in? %>flashes--present<% end %>">
+  <% flash.each do |name, message| %>
+    <div data-flash-type="<%= name %>" class="flash flash--<%= name %>">
+      <div class="flash__inner">
+        <%= message %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,14 @@
+<span class="inline-flex rounded-md px-1">
+  <%= link_to t("admin.common.view"), "/public/report/#{report.uid}", class: "shadow-md p-1 inline-flex items-center border border-gray-300 text-xs leading-4 font-medium rounded text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150" %>
+</span>
+<% unless report.accept? %>
+  <span class="inline-flex rounded-md px-1">
+    <%= link_to t("admin.reports.actions.set_draft"), draft_admins_report_url(report.id), method: "put", class: "shadow-md p-1 inline-flex items-center border border-gray-300 text-xs leading-4 font-medium rounded text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150" %>
+  </span>
+  <span class="inline-flex rounded-md px-1">
+    <%= link_to t("admin.reports.actions.send_report"), complete_admins_report_url(report.id), method: "put", class: "shadow-md p-1 inline-flex items-center border border-gray-300 text-xs leading-4 font-medium rounded text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150" %>
+  </span>
+<% end %>
+<span class="inline-flex rounded-md px-1">
+  <a href="/admins/reports/<%= report.id %>" data-method="delete" rel="nofollow" class="shadow-md p-1 inline-flex items-center border border-gray-300 text-xs leading-4 font-medium rounded text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150"><%= t("admin.common.delete") %></a>
+</span>

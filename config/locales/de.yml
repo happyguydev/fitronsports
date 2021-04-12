@@ -1,0 +1,207 @@
+de:
+  hello: "Hello world"
+  site_name: "FitronSport"
+  registrations:
+    title: "Neuen Account erstellen"
+  requests:
+    show:
+      toolbar_title: "Anfrage #%{request_id}"
+      created_ago: "Erstellt vor %{time_ago}"
+    edit:
+      input_groups:
+        service_request: "Was soll gewartet werden?"
+        order_request: "Was möchten Sie bestellen?"
+  common:
+    save: "Speichern"
+    submit: 'Senden'
+    cancel: "Abbrechen"
+    add: 'Hinzufügen'
+    name: "Name"
+    type: "Typ"
+    first_name: "Vorname"
+    last_name: "Nachname"
+    email: "E-Mail Adresse"
+    phone_number: "Telefonnummer"
+    signature: 'Unterschrift'
+    created: "Erstellt am"
+    created_2: "Erstellt am"
+    time: "Erstellt am"
+    by: "Durchgeführt von"
+    ref_number: "#"
+    member_since: 'Mitglied seit'
+    status: "Status"
+    continue: "Weiter"
+    address: "Adresse"
+    street_name: "Straße"
+    street_address: "Hausnummer"
+    postal_code: "Postleitzahl"
+    city_town: "Stadt"
+    facility:
+      search_by_name: "Suchen"
+    password_hint:
+      at_least_8: 'Muss aus mindestens 8 Zeichen bestehen!'
+    back: "Zurück"
+  devise:
+    common:
+      email: "E-Mail Adresse"
+      password: "Passwort"
+    sessions:
+      new:
+        forgot_password: "Passwort vergessen?"
+        create_account: "Account erstellen"
+        login: "Login"
+        logout: "Ausloggen"
+        signin: "Einloggen"
+        login_as_auditor: "Zum Prüftechniker-Login"
+        back_to_service_login: "Zurück zum Service-Login"
+    registrations:
+      title_part_1: "Neuen Account"
+      title_part_2: "erstellen"
+      account_details: "Persönliche Daten"
+      facility_details: "An welcher Sportstätte sind Sie tätig?"
+      already_have_account: "Sie haben bereits einen Account?"
+      hint_part_1: "Durch erstellen eines Accounts akzeptiere ich Fitron Sport's"
+      hint_part_2: "und"
+      terms_of_services: "Nutzungsbedingungen"
+      privacy_policy: "Datenschutzerklärung"
+      what_is_your_name: "Wie heißen Sie?"
+      complete: "Registrieren"
+    passwords:
+      submit: 'Passwort zurücksetzen'
+      changed_successfully: 'Passwort wurde erfolgreich geändert'
+      reset_password_email_sent: 'E-Mail zum Zurücksetzen des Passworts erfolgreich gesendet'
+  menu:
+    terms_of_services: "Nutzungsbedingungen"
+    privacy_policy: "Datenschutzerklärung"
+    support_center: "Hilfe & Support"
+  facility_create:
+    title: "Neue Sportstätte hinzufügen"
+    name: "Name der Sportstätte"
+    choose_type: "Art der Sportstätte"
+    municipal_contact: "Gemeindekontakt"
+    contact_name: "Name"
+    contact_email: "E-Mail Adresse"
+  facility_search:
+    key_title: "Suchen"
+    add_new: "Neue Sportstätte hinzufügen"
+    no_results: "Keine Suchergebnisse für"
+  request:
+    status:
+      all: "Alle"
+      sent: "Gesendet"
+      draft: "Entwurf"
+      complete: "Erledigt"
+    badge:
+      service: 'SERVICE'
+      order: 'PRODUKT'
+    delete_confirm: "Anfrage wirklich löschen?"
+    edit_title: "Anfrage ändern"
+    flash:
+      updated: "Anfrage wurde erfolgreich gespeichert."
+      submitted: "Anfrage erfolgreich eingereicht."
+      destroyed: "Anfrage %{id} wurde gelöscht"
+  report:
+    status:
+      all: "Alle"
+      sent: "Gesendet"
+      draft: "Entwurf"
+      accept: "Angenommen"
+    delete_confirm: "Prüfbericht wirklich löschen?"
+    part:
+      rate:
+        good: "In Ordnung"
+        problematic: "Reparaturbedürftig"
+        bad: "Beschädigt"
+    flash:
+      destroyed: "Prüfbericht %{id} wurde gelöscht"
+  create_request:
+    title: "Neue Anfrage erstellen"
+    cancel_alert: "Wollen Sie Ihre Anfrage abbrechen?"
+    select_facility:
+      title: "Neue Anfrage erstellen"
+      field_title: "Ihre Sportstätte"
+    choose_type: "Wie können wir Ihnen helfen?"
+    request_types:
+      service_request: "Reparatur - Anfrage"
+      order_request: "Produkt - Anfrage"
+    completion:
+      success: "Anfrage gesendet!"
+      received_your_message: "Wir haben Ihre Anfrage dankend erhalten."
+      please_call: ""
+      ok_button: "Ok"
+      create_another: "Neue Anfrage erstellen"
+      saved_as_draft: "Ihre Anfrage wurde als Entwurf gespeichert."
+      deleted: "Ihre Anfrage wurde gelöscht."
+  janitors:
+    dashboard:
+      header:
+        home: "Dashboard"
+        profile: "Profil"
+        create_request: "Neue Anfrage erstellen"
+      home:
+        request_list: "Meine Anfragen"
+        say_hi: "Hi"
+        welcome_back: "Willkommen!"
+      profile:
+        email_title: "E-Mail Adresse"
+        phone_number_title: "Telefonnummer"
+        facility_name_title: "Sportstätte"
+        profile_settings_title: "Einstellungen"
+        profile_settings_hint: "Persönliche Daten ändern"
+        privacy_title: "Sicherheit"
+        privacy_hint: "Passwort ändern"
+      profile_edit:
+        account_details: "Persönliche Daten"
+        facility_details: "Sportstätte"
+      password:
+        password_title: "Neues Passwort"
+        current_password: "Aktuelles Passwort"
+        password_new: "Neues Passwort eingeben"
+        password_confirm: "Neues Passwort wiederholen"
+      completion:
+        success: "Gespeichert!"
+        notice_1: "Ihre Änderungen wurden erfolgreich übernommen."
+        notice_2: ""
+        ok_button: "Ok"
+  create_report:
+    title: "Neuen Prüfbericht erstellen"
+    name_of_report: 'Titel des Prüfberichts'
+    saved_as_draft: 'Ihr Prüfbericht wurde als Entwurf gespeichert.'
+    cancel: 'Ihr Prüfbericht wurde gelöscht.'
+    completion:
+      success: 'Gesendet!'
+      received_your_message: 'Ihr Prüfbericht wurde erfolgreich an uns übermittelt.'
+      create_another: 'Neuen Prüfbericht erstellen'
+  edit_report:
+    title: 'Prüfbericht ändern'
+  inspectors:
+    dashboard:
+      header:
+        home: "Dashboard"
+        profile: "Profil"
+        create_report: "Neuen Prüfbericht erstellen"
+      home:
+        report_list: "Meine Prüfberichte"
+        say_hi: "Hi"
+        welcome_back: "Willkommen!"
+      profile:
+        email_title: "E-Mail Adresse"
+        phone_number_title: "Telefonnummer"
+        facility_name_title: "Sportstätte"
+        profile_settings_title: "Einstellungen"
+        profile_settings_hint: "Persönliche Daten ändern"
+        privacy_title: "Sicherheit"
+        privacy_hint: "Passwort ändern"
+      profile_edit:
+        account_details: "Persönliche Daten"
+        facility_details: "Sportstätte"
+      password:
+        password_title: "Neues Passwort"
+        current_password: "Aktuelles Passwort"
+        password_new: "Neues Passwort eingeben"
+        password_confirm: "Neues Passwort wiederholen"
+      completion:
+        success: "Gespeichert!"
+        notice_1: "Ihre Änderungen wurden erfolgreich übernommen."
+        notice_2: ""
+        ok_button: "Ok"

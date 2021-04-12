@@ -1,0 +1,14 @@
+<div
+  class="<%= alert.root_class %>"
+  data-controller="alert"
+  data-target=<%= alert.data_target %>
+  data-alert-initially-visile=<%= alert.initially_visible %>
+>
+  <div class="alert__wrapper">
+    <span class="alert__title" data-target="alert.title">
+      <%= alert.title %>
+    </span>
+    <ul data-target="alert.messages" class="list-disc ml-6">
+    </ul>
+  </div>
+</div>

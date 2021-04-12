@@ -1,0 +1,14 @@
+/*! purgecss start ignore */
+a {
+  @apply transition-all ease-in-out duration-500;
+  hover {
+    @apply opacity-75;
+  }
+}
+
+.breadcrumb {
+  &:hover {
+    @apply text-primary-500;
+  }
+}
+/*! purgecss end ignore */

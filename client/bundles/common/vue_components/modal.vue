@@ -1,0 +1,114 @@
+<template>
+  <transition name="v-modal-fade">
+    <div class="v-modal-wrapper">
+      <div tabIndex="0" @click="close" class="v-modal-backdrop"></div>
+      <div
+        :class="['v-modal', modalClass]"
+        role="dialog"
+        :aria-labelledby="title"
+        :aria-describedby="description"
+      >
+        <slot name="header" v-if="showHeader && title">
+          <header class="v-modal__header">
+            <div class="flex flex-col">
+              <div class="v-modal__title">{{ title }}</div>
+              <div class="v-modal__description" v-if="description">
+                {{ description }}
+              </div>
+            </div>
+            <button type="button" aria-label="Close" @click="close" v-show="showClose">
+              <clear-icon />
+            </button>
+          </header>
+        </slot>
+        <slot></slot>
+        <slot name="footer"></slot>
+      </div>
+    </div>
+  </transition>
+</template>
+
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
+  name: 'Modal',
+  props: {
+    title: {
+      type: String,
+      required: false,
+    },
+    description: {
+      type: String,
+      required: false,
+    },
+    showHeader: {
+      type: Boolean,
+      default: true,
+    },
+    showClose: {
+      type: Boolean,
+      default: true,
+    },
+    modalClass: String,
+  },
+  methods: {
+    close() {
+      this.$emit('close');
+    },
+  },
+});
+</script>
+
+<style lang="scss" scoped>
+.v-modal-wrapper {
+  @apply fixed inset-0 flex justify-center items-center;
+  @apply z-50;
+}
+
+.v-modal-backdrop {
+  @apply absolute inset-0;
+  @apply outline-none cursor-pointer z-50;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.v-modal {
+  @apply bg-white shadow-sm flex flex-col;
+  @apply z-50 cursor-auto p-5;
+
+  &__header {
+    @apply flex flex-row justify-between items-start;
+    @apply pb-5;
+  }
+
+  &__title {
+    @apply font-medium;
+    max-width: 80%;
+  }
+
+  &__description {
+    @apply text-sm mt-1;
+
+    line-height: 22px;
+    color: #a7a7a7;
+  }
+}
+
+.v-modal-fade-enter,
+.v-modal-fade-leave-active {
+  @apply opacity-0;
+
+  .modal {
+    @apply opacity-0;
+    transform: translateY(-10%);
+  }
+}
+
+.v-modal-fade-enter-active,
+.v-modal-fade-leave-active {
+  transition: all 250ms ease;
+  .modal {
+    @apply transition-all ease-in-out duration-150;
+  }
+}
+</style>

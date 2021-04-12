@@ -1,0 +1,12 @@
+<div class="create-request wizard">
+  <%= render 'header' %>
+
+  <div
+    class="js-order-request-form"
+    data-redirect-path="<%= wizard_path :completion %>"
+    data-draft-redirect-path="<%= draft_janitors_create_request_index_path %>"
+    data-submission-path="<%= wizard_path %>"
+    data-cancel-path="<%= cancel_janitors_create_request_index_path %>"
+  >
+  </div>
+</div>

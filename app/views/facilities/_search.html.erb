@@ -1,0 +1,44 @@
+<% target = local_assigns[:target] %>
+<%= component :modal, position: :full, controller_name: 'facility-search', target: target do |c| %>
+  <%= c.header class_name: 'f-modal__header' do %>
+    <div class="f-modal-header__wrapper">
+      <input
+        type="text"
+        data-target="facility-search.input"
+        placeholder="<%= t("facility_search.key_title") %>"
+        class="f-modal__search">
+
+      <button
+        type="button"
+        aria-label="Clear search"
+        data-action="facility-search#clearSearch"
+        data-target="facility-search.clearSearch"
+        class="transition-all ease-in-out duration-300"
+      >
+        <%= icon :close, class: 'w-4' %>
+      </button>
+    </div>
+  <% end %>
+
+  <%= c.close do %>
+    <%= icon :back %>
+  <% end %>
+
+  <%= c.body do %>
+    <div class="facility-search">
+      <div class="facility-search__loading"></div>
+      <div class="facility-search__results" data-target="facility-search.results"></div>
+      <div class="facility-search__empty-state" data-target="facility-search.emptyState">
+        <div data-target="facility-search.emptyStateTitle"><%= t("facility_search.no_results") %></div>
+      </div>
+    </div>
+  <% end %>
+
+  <%= c.footer do %>
+    <%= link_to new_facility_path, class: 'flex flex-row items-center' do %>
+      <%= icon :add_circle %>
+      <span class="ml-3 font-medium text-primary-500"><%= t("facility_search.add_new") %></span>
+    <% end %>
+  <% end %>
+<% end %>
+<p id="facility-no-results-text" class="hidden"><%= t("facility_search.no_results") %></p>

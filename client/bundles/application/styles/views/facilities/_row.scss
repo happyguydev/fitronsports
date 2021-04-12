@@ -1,0 +1,19 @@
+/*! purgecss start ignore */
+
+.facility-row {
+  @apply flex flex-col mb-4;
+
+  &__title {
+    @apply font-medium text-left;
+  }
+
+  &__address {
+    @apply text-grey-500 text-left;
+  }
+}
+
+.facility-input {
+  @apply cursor-pointer;
+  height: 54px;
+}
+/*! purgecss end ignore */

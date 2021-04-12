@@ -1,0 +1,21 @@
+<h1>Listing facilities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tbody>
+    <% @facilities.each do |facility| %>
+      <tr>
+        <td> <%= link_to 'Show', facility %> </td>
+        <td> <%= link_to 'Edit', edit_facility_path(facility) %></td>
+        <td> <%= link_to 'Destroy', facility, data: { confirm: 'Are you sure?' }, method: :delete %></td>
+      </td>
+    <% end %>
+
+<br>
+
+<%= link_to 'New Facility', new_facility_path %>

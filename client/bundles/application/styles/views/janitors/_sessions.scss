@@ -1,0 +1,63 @@
+/*! purgecss start ignore */
+body.sessions.sessions--new {
+  @screen md {
+    background-color: #f7f7f7;
+  }
+
+  .panel {
+    @screen md {
+      @apply max-w-md;
+    }
+  }
+}
+
+.session-page {
+  @apply flex flex-col w-full max-w-md mx-auto h-full flex-1;
+  @apply justify-center items-center;
+
+  @screen md {
+    @apply max-w-none;
+  }
+}
+
+.panel {
+  @apply my-auto flex flex-col w-full;
+
+  @screen md {
+    @apply bg-white w-full shadow-sm px-12 pt-12;
+    @apply border z-50;
+
+    border-color: #f4f3f3;
+    border-radius: 12px;
+  }
+}
+
+.session-illustration {
+  @screen md {
+    @apply absolute left-0 right-0 bottom-0;
+    @apply z-0 pointer-events-none;
+  }
+
+  > .desktop {
+    @apply hidden;
+
+    @screen md {
+      @apply flex flex-row justify-between w-full;
+      > img {
+        max-width: 50%;
+      }
+      > img:nth-of-type(2) {
+        transform: scaleX(-1);
+      }
+    }
+  }
+
+  > .mobile {
+    @apply block;
+
+    @screen md {
+      @apply hidden;
+    }
+  }
+}
+/*! purgecss end ignore */

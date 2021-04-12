@@ -1,0 +1,25 @@
+/*! purgecss start ignore */
+.create-report {  
+  @apply flex flex-col h-full;
+  
+  @screen md{
+    @apply pb-0;
+  }
+  
+  &__title {
+    @apply text-2xl font-bold leading-tight w-full;
+    color: #232527;
+    margin-bottom: 24px;
+
+    @screen md{
+      @apply max-w-md;
+    }
+  }
+}
+
+.signature_pad {
+  @apply h-56 w-full;
+  background-color: #F7F7F7;
+}
+
+/*! purgecss end ignore */

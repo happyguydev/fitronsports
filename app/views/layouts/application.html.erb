@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'shared/head' %>
+  </head>
+
+  <body class="<%= body_class %> container">
+    <%= render 'shared/notices' %>
+
+    <%= yield %>
+  </body>
+  
+  <%= render 'shared/scripts' %>
+</html>

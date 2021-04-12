@@ -1,0 +1,51 @@
+<%= form for: resource, as: resource_name, url: registration_path(resource_name), controller: 'inspector-registration', redirect: inspectors_after_signup_index_path do |f| %>
+  <%= f.alert :error, controller: 'inspector-registration' %>
+
+  <div class="flex flex-col md:flex-row md:-mt-2">
+     <%= f.inputs 'Your Account Details', class: 'md:w-full' do %>
+      <%= f.input :email, required: true,
+        input_html: { autocomplete: "email" }, icon: :email %>
+
+      <%= f.input :phone_number, required: true,
+        input_html: { autocomplete: "tel-national" }, as: :numeric, icon: :phone %>
+
+      <div class="flex flex-col" data-controller="password">
+        <%= f.input :password, label: false, placeholder: 'Password',
+          required: true,
+          input_html: {
+            'data-target': 'password.input',
+            autocomplete: "password",
+          }, icon: :lock %>
+                  
+        <div class="flex flex-col" data-target="password.animate">
+          <ul class="list-disc ml-6 text-sm" data-target="password.hints"></ul>
+        </div>
+      </div>
+    <% end %>
+
+    <%= f.inputs "What's your sport facility?", class: 'mt-2 md:w-full md:ml-5' do %>
+      <%= f.association :facility, as: :hidden, wrapper: false, required: true, input_html: { value: @facility&.id } %>
+
+      <input
+        type="button"
+        name="inspector[facility_name]"
+        class="field <% unless @facility.present? %>text-grey-500<% end %> -mt-2 facility-input"
+        data-action="click->inspector-registration#openSearch"
+        data-target="inspector-registration.facilitySearch"
+        data-facility-id="<%= @facility&.id %>"
+        value="<%= @facility.present? ? @facility.name : 'Search by name...' %>">
+    <% end %>
+
+  </div>
+
+  <div class="mt-4">
+    <label class="block">
+      <input type="checkbox" name="inspector[terms_of_service]" value="true" class="mr-2" aria-required="true">
+      <span class="text-sm">By signing up, I agree to Fitron Sport's Term of Services and Privacy Policy</span>
+    </label>
+  </div>
+
+  <%= f.submit 'Continue', class: 'mt-8 w-full' %>
+
+  <%= render 'facilities/search', target: 'inspector-registration.searchModal' %>
+<% end %>

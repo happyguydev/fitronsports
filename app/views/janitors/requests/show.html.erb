@@ -1,0 +1,100 @@
+<%= content_for :header do %>
+  <div class="toolbar js-dashboard-toolbar md:hidden">
+    <div class="toolbar__back">
+      <%= icon_link_to :back, janitors_dashboard_path %>
+    </div>
+
+    <ul class="toolbar__actions">
+      <% if can? :edit, @request %>
+        <li><%= icon_link_to :edit, edit_janitors_request_path(@request), 'data-turbolinks': false %></li>
+      <% else %>
+        <li><%= icon :edit, class: 'text-grey-500' %></li>
+      <% end %>
+      
+      <% if can? :destroy, @request %>
+        <li><%= icon_link_to :trash, janitors_request_path(@request), method: :delete, data: { confirm: t("request.delete_confirm") } %></li>
+      <% else %>
+        <li><%= icon :trash, class: 'text-grey-500' %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="header-nav--wrapper">
+    <%= render 'shared/notices_request' %>
+
+    <div class="header-nav">
+      <h4 class="text-grey-800"><%= link_to t("janitors.dashboard.header.home"),janitors_dashboard_path, class: 'breadcrumb' %></h4> &nbsp;&nbsp;<%= icon :right %>&nbsp;&nbsp;<h4 class="text-grey-400"><%= @request.title %></h4>
+    </div>
+  </div>
+<% end %>
+
+<div class="dashboard-wrapper__page">
+  <div class="alt-background flex-1 h-full w-full">
+    <div class="bg-white border-b shadow-sm md:shadow-none pb-2">
+      <div class="container request-show__header-detail">
+        <div class="flex flex-row md:justify-between items-start">
+          <h1 class="text-2xl font-bold mb-4"><%= @request.title %></h1>
+          <div class="flex-col items-end hidden md:flex pt-2">
+            <% if can? :edit, @request %>
+              <%= icon_link_to :edit, edit_janitors_request_path(@request), 'data-turbolinks': false %>
+            <% else %>
+              <%= icon :edit, class: 'text-grey-500' %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="flex flex-row mt-4 md:mt-2">
+
+          <div class="flex flex-row justify-between md:justify-start w-full">
+            <div class="request-flag w-full md:w-auto">
+              <div class="request-flag__icon">
+                <%= icon :clock_edit %>
+              </div>
+              <div class="request-flag__body">
+                <div class="request-flag__title">
+                  <%= t("common.created") %>
+                </div>
+                <div class="request-flag__detail">
+                  <%= @request.created_at.strftime('%d.%m.%Y') %>
+                </div>
+              </div>
+            </div>
+
+            <div class="request-flag w-full md:w-auto md:ml-10">
+              <div class="request-flag__icon">
+                <%= icon :status_flag %>
+              </div>
+              <div class="request-flag__body">
+                <div class="request-flag__title">
+                  <%= t("common.status") %>
+                </div>
+                <div class="request-flag__detail">
+                  <%= t("request.status.#{@request.status}") %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:flex flex-1 text-right hidden">
+            <% if can? :destroy, @request %>
+              <%= icon_link_to :trash, janitors_request_path(@request), method: :delete, data: { confirm: t("request.delete_confirm") } %>
+            <% else %>
+              <%= icon :trash, class: 'text-grey-500' %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-4 pb-8 border-t border-gray-200 request-show__description">
+          <%= @request.description %>
+        </div>
+      </div>
+    </div>
+
+    <div class="container flex flex-col request-show__detail">
+      <% @request.not_original_images.each do |attachment| %>
+        <div class="pt-6 w-full">
+          <%= render 'janitors/requests/attachment', attachment: attachment, request: @request %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

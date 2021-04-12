@@ -1,0 +1,132 @@
+/*! purgecss start ignore */
+
+.dashboard {
+  .content {
+    @screen md{
+      @apply bg-white;
+    }
+  }
+}
+
+.dashboard-wrapper {
+  @apply flex flex-col flex-1 h-full relative;
+  @apply w-full;
+  @extend .sm-container;
+
+  &[data-header-visible='true'] {
+    padding-top: $dashboard-header-height-mobile;
+    @apply mt-5;
+
+    @screen md {
+      margin-top: 0;
+      padding-top: $dashboard-header-height;
+    }
+  }
+
+  @screen md {
+    padding-top: 0;
+  }
+
+  &__page {
+    @screen md{
+      max-width: 33.75rem;
+      @apply w-full;
+      @apply mx-auto mt-12;
+    }
+  }
+}
+
+.dashboard-header {
+  @apply left-0 right-0 top-0 bg-white;
+  @apply flex flex-col bg-white z-50;
+  @apply fixed;
+
+  height: $dashboard-header-height-mobile;
+
+  @screen md {
+    height: $dashboard-header-height;
+  }
+
+  &__nav {
+    @extend .container;
+    @apply w-full h-full;
+    @apply flex flex-row justify-between items-center mb-4 px-4 pt-4;
+
+    @screen md {
+      @apply p-0 px-4 m-0;
+    }
+
+    @screen lg {
+      @apply mx-auto;
+    }
+  }
+
+  &__links {
+    @apply flex-1 hidden flex-row items-center ml-10 h-full;
+
+    @screen md {
+      @apply flex;
+    }
+  }
+
+  &__link {
+    @apply mr-12 font-medium h-full flex items-center justify-center;
+    &:hover {
+      @apply text-primary-500;
+    }
+  }
+
+  &__link--active {
+    @apply text-primary-500 border-primary-500 border-b-2;
+  }
+}
+
+.dashboard-header--toolbar {
+  @apply bg-white;
+  height: $dashboard-header-with-toolbar-height;
+}
+
+.dashboard-wrapper--with-toolbar {
+  padding-top: $dashboard-header-with-toolbar-height !important;
+}
+
+.dashboard-welcome {
+  @apply flex flex-row flex-wrap justify-start items-end;
+
+  @screen md {
+    @apply items-center bg-subGrey py-5;
+  }
+
+  &__wrapper {
+    @extend .md-container;
+    @apply flex flex-row font-normal items-end w-full;
+
+    @screen md {
+      @apply flex-row justify-start items-start;
+    }
+  }
+}
+
+.dashboard-home {
+  @apply flex flex-col mt-5;
+  @extend .md-container;
+
+  @screen md {
+    @apply mt-5;
+  }
+}
+
+.dashboard-tabs {
+  @screen md {
+    @apply hidden;
+  }
+}
+
+.hidden-always {
+  display: none!important;
+}
+
+.fitron-logo {
+  height: 38px;
+}
+/*! purgecss end ignore */

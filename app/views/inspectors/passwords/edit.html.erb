@@ -1,0 +1,38 @@
+<div class="session-page">
+  <div class="panel">
+    <div class="mb-16 w-full">
+      <div class="flex flex-row w-full justify-center">
+        <%= image_tag 'logo', class: 'object-contain mb-10 w-48' %>
+      </div>
+
+      <%= form for: resource, as: resource_name, url: password_path(resource_name), method: :put do |f| %>
+        <%= f.alert :error %>
+
+        <div class="hidden">
+          <%= f.input :reset_password_token, as: :hidden %>
+        </div>
+        <div class="form-inputs">
+          <%= f.input :password,
+                      required: true,
+                      autofocus: true,
+                      icon: :lock,
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                      required: true,
+                      icon: :lock,
+                      input_html: { autocomplete: "new-password" } %>
+        </div>
+
+        <%= f.submit t("devise.passwords.submit"), class: 'mt-4 w-full', disabled: true %>
+
+        <div class="flex flex-row justify-between mt-6 md:mt-8">
+          <%= link_to t("devise.sessions.new.signin"), new_inspector_session_path, class: 'text-primary-500' %>
+          <%= link_to t("devise.sessions.new.create_account"), new_inspector_registration_path, class: 'text-primary-500' %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+
+  <%= render 'shared/session_illustration' %>
+</div>

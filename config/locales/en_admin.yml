@@ -1,0 +1,176 @@
+en:
+  admin:
+    admins: 
+      title: "Administrators"
+    common:
+      back: "Back"
+      cancel: "Cancel"
+      delete: "Delete"
+      edit: "Edite"
+      name: "Name"
+      print: "Create PDF"
+      role: "Role"
+      save: "Save"
+      set_complete: "Set completed"
+      status: "Status"
+      success: "Success"
+      error: "Error"
+      view: "View details"
+      form:
+        email: "Email addresse"
+        first_name: "First name"
+        last_name: "Last name"
+        phone_number: "Phone"
+        password: "Password"
+      nav_filter:
+        all: "All"
+        completed: "Completed"
+        needs_action: "In progress"
+        sending_errors: "Sending error"
+    dashboard:
+      title: "Dashboard"
+    facilities:
+      title: "Facilities"
+      flash:
+        created: "Facility was successfully created"
+        updated: "Facility was successfully updated"
+        destroyed: "Facility was deleted"
+        errors:
+          created: "Facility was not saved. "
+          updated: "Facility was not updated. "
+      new_facility: "Create facility"
+      form:
+        title: "Create facility"
+        city_town: "City"
+        contact_email: "Munincipality contact: email"
+        contact_name: "Munincipality contact: name"
+        facility_name: "Facility name" 
+        facility_type: "Type"
+        postal_code: "Postal code"
+        searchable: "Searchable"
+        street_name: "Street name"
+        street_address: "Street addresse"
+    inspectors:
+      title: "Auditor"
+      new_inspector: "Auditor anlegen"
+      index:
+        organisation: "Organisation"
+      flash:
+        created: "Inspector was successfully created"
+        updated: "Inspector was successfully updated"
+        destroyed: "Inspector was deleted"
+        errors:
+          created: "Inspector was not saved. "
+          updated: "Inspector was not updated. "
+    manage_admin:
+      title: "Administrator"
+      flash:
+        created: "Admin was successfully created"
+        updated: "Admin was successfully updated"
+        destroyed: "Admin was successfully deleted"
+        errors:
+          created: "Admin was not created"
+          updated: "Admin was not updated"
+          destroyed: "Admin was not deleted"
+      new_admin: "Create adminitrator"
+      status:
+        active: "Activ"
+        inactive: "Inactiv"
+    products:
+      title: "Products"
+      flash:
+        created: "Product was successfully created"
+        updated: "Product was successfully updated"
+        destroyed: "Product was successfully deleted"
+        errors:
+          created: "Product was not created"
+          updated: "Product was not updated"
+          destroyed: "Product was not deleted"
+      new_product: "Create product"
+      form:
+        description: "Description"
+        isbn: "ISBN"
+        sku: "SKU"
+        title: "Create new product"
+        product_title: "Product name"
+    reports: 
+      title: "Reports"
+      actions:
+        set_draft: 'Set to draft'
+        send_report: "Send to munincipality"
+        public_view: "View public version"
+      flash:
+        completed: "Report %{id} was completed and sent"
+        destroyed: "Report %{id} was deleted"
+        draft: "Report %{id} status changed to draft"
+        errors:
+          completed: "Report %{id} was not sent"
+          destroyed: "Report %{id} was not deleted"
+      form:
+        accepted_at: "Completed"
+        facility_address: "Facility address"
+        facility_name: "Facility name"
+        inspector_name: "Auditor name"
+        signature: "signature"
+        sent_at: "Sent"
+        rejected_at: "Rejected"
+      part_rate:
+        bad: "Bad"
+        good: "Good"
+        problematic: "Problematic"
+      public:
+        audit_by: "Audit by"
+        completed: "Completed"
+        facility: "Facility"
+        overview: "Overview"
+        protocol: "Protocol"
+        condition:
+          good_condition: "Good"
+          so_so_condition: "Problematic"
+          bad_condition: "Bad"
+      report_part: 
+        title: "Report part"
+        form:
+          attachments: "attachments"
+          description: "Description"
+          product: "Product"
+          rate: "Condition"
+          title: "Name"
+      status:
+        accept: "Completed"
+        archived: "Archived"
+        draft: "Draft"
+        sent: "Sent"
+    requests:
+      title: "Requests"
+      actions:
+        public_view: 'Pulic view'
+      request_type:
+        service_request: "Service request"
+        order_request: "Product request"
+      flash:
+        completed: "Request %{id} was completed"
+        destroyed: "Request %{id} was deleted"
+      form:
+        accepted_at: "Completed"
+        attachments: "Attachments"
+        facility_name: "Facility name"
+        janitor_name: "Janitor name"
+        product_name: "Product name"
+        quantity: "Quantity"
+        request_type: "Request type"
+        sent_at: "Sent"
+        title: "Titel"
+      public:
+        completed: "Completed"
+        details: "Details"
+        facility: "Facility"
+        overview: "Overview"
+        request_by: "Created by"        
+      status:
+        all: "All"
+        sent: "Sent"
+        draft: "Draft"
+        complete: "Completed"
+    sessions:
+      logout: "Log out"

@@ -1,0 +1,215 @@
+en:
+  activemodel:
+    validation:
+      failed: 'Failed to validate the value submitted.'
+    attributes:
+      create_request_form:
+        title: 'Title'
+        description: 'Description'
+        attachments_attributes: 'Attachments'
+  hello: 'Hello world'
+  site_name: 'FitronSport'
+  registrations:
+    title: 'Create new account for free'
+  requests:
+    show:
+      toolbar_title: 'Request #%{request_id}'
+      created_ago: 'Created about %{time_ago} ago'
+    edit:
+      input_groups:
+        service_request: 'Which equipment need service?'
+        order_request: 'What do you want to order?'
+  common:
+    save: 'Save'
+    submit: 'Submit'
+    cancel: 'Cancel'
+    add: 'Add'
+    name: "Name"
+    type: "Type"
+    first_name: 'First Name'
+    last_name: 'Last Name'
+    email: 'Email'
+    phone_number: 'Phone number'
+    signature: 'Signature'
+    created: 'Created'
+    created_2: 'Created'
+    time: 'Time'
+    by: 'By'
+    ref_number: 'Ref number'
+    member_since: 'Member since'
+    status: 'Status'
+    continue: 'Continue'
+    address: "Address"
+    street_name: "Street Name"
+    street_address: "Street Address"
+    postal_code: "Postal code"
+    city_town: "City/Town"
+    facility:
+      search_by_name: 'Search by name...'
+    password_hint:
+      at_least_8: 'Must be at least 8 characters'
+    back: "Go back"
+  devise:
+    common:
+      email: 'Email'
+      password: 'Password'
+    sessions:
+      new:
+        forgot_password: 'Forgot password?'
+        create_account: 'Create account'
+        login: 'Login'
+        logout: "Logout"
+        signin: 'Sign In'
+        login_as_auditor: "Log in as auditor"
+        back_to_service_login: "Back to service login"
+    registrations:
+      title_part_1: 'Create a new '
+      title_part_2: 'account for free.'
+      account_details: 'Your Account Details'
+      facility_details: "What's your sport facility?"
+      already_have_account: 'Already have an account?'
+      hint_part_1: "By signin up, I agree to Fitron Sport's"
+      hint_part_2: "and"
+      terms_of_services: 'Terms of Services'
+      privacy_policy: 'Privacy Policy'
+      what_is_your_name: "What's your name?"
+      complete: "Complete Registration"
+    passwords:
+      submit: 'Reset Password'
+      changed_successfully: 'Password changed successfully'
+      reset_password_email_sent: 'Sent reset password email successfully'
+  menu:
+    terms_of_services: "Terms Of Services"
+    privacy_policy: "Privacy policy"
+    support_center: "Support Center"
+  facility_create:
+    title: "Add a new facility"
+    name: "Name of Facility"
+    choose_type: "Choose a Facility Type"
+    municipal_contact: "Municipality contact"
+    contact_name: "Contact Name"
+    contact_email: "Contact Email"
+  facility_search:
+    key_title: "Search for a facility..."
+    add_new: "Add new facility"
+    no_results: "No results were found for"
+  request:
+    status:
+      all: 'All'
+      sent: 'Sent'
+      draft: 'Draft'
+      complete: 'Complete'
+    badge:
+      service: 'SERVICE'
+      order: 'ORDER'
+    delete_confirm: 'Do you want to delete this request?'
+    edit_title: "Edit Request"
+    flash:
+      updated: 'Request was successfully saved.'
+      submitted: 'Request successfully submitted.'
+      destroyed: "Request %{id} was removed."
+  report:
+    status:
+      all: 'All'
+      sent: 'Sent'
+      draft: 'Draft'
+      accept: 'Accept'
+    delete_confirm: 'Do you want to delete this report?'
+    part:
+      rate:
+        good: 'Good'
+        problematic: 'Problematic'
+        bad: 'Bad'
+    flash:
+      destroyed: "Report %{id} was removed."
+  create_request:
+    title: 'Create a new request'
+    cancel_alert: 'Are you sure to cancel this request?'
+    select_facility:
+      title: 'Create a new request'
+      field_title: 'Your sport facility'
+    choose_type: 'How can we help you?'
+    request_types:
+      service_request: 'Request for service'
+      order_request: 'Order new equipment'
+    completion:
+      success: 'Success!'
+      received_your_message: "We recieved your message and will respond within 72 hours."
+      please_call: "If you have any questions or concerns, please call "
+      ok_button: "OK, I got it"
+      create_another: "Create another request"
+      saved_as_draft: "Your request has been saved as draft"
+      deleted: "Your request has been deleted"
+  janitors:
+    dashboard:
+      header:
+        home: 'Home'
+        profile: 'Profile'
+        create_request: 'Create New Request'
+      home:
+        request_list: 'Request List'
+        say_hi: 'Hi'
+        welcome_back: 'Welcome back'
+      profile:
+        email_title: 'Email Address'
+        phone_number_title: 'Phone Number'
+        facility_name_title: 'Sport Facility'
+        profile_settings_title: 'Profile Settings'
+        profile_settings_hint: 'Update and modify your profile'
+        privacy_title: 'Privacy'
+        privacy_hint: 'Change your password'
+      profile_edit:
+        account_details: 'Your account details'
+        facility_details: 'Your sport facility'
+      password:
+        password_title: 'New password'
+        current_password: 'Current Password'
+        password_new: 'Enter new password'
+        password_confirm: 'Retype new password'
+      completion:
+        success: 'Success!'
+        notice_1: 'Your information has been changed.'
+        notice_2: 'Please check your email and click the confirmation link to complete.'
+        ok_button: 'OK, I got it'
+  create_report:
+    title: 'Create a new report'
+    name_of_report: 'Name of your report'
+    saved_as_draft: 'Saved report as draft successfully.'
+    cancel: 'Report was deleted.'
+    completion:
+      success: 'Success!'
+      received_your_message: "We recieved your message and will respond within 72 hours."
+      create_another: 'Create another report'
+  edit_report:
+    title: 'Edit report'
+  inspectors:
+    dashboard:
+      header:
+        home: 'Home'
+        profile: 'Profile'
+        create_report: 'Create New Report'
+      home:
+        report_list: 'Report List'
+        say_hi: 'Hi'
+        welcome_back: 'Welcome back'
+      profile:
+        email_title: 'Email Address'
+        phone_number_title: 'Phone Number'
+        facility_name_title: 'Sport Facility'
+        profile_settings_title: 'Profile Settings'
+        profile_settings_hint: 'Update and modify your profile'
+        privacy_title: 'Privacy'
+        privacy_hint: 'Change your password'
+      profile_edit:
+        account_details: 'Your account details'
+        facility_details: 'Your sport facility'
+      password:
+        password_title: 'New password'
+        current_password: 'Current Password'
+        password_new: 'Enter new password'
+        password_confirm: 'Retype new password'
+      completion:
+        success: 'Success!'
+        notice_1: 'Your information has been changed.'
+        notice_2: 'Please check your email and click the confirmation link to complete.'
+        ok_button: 'OK, I got it'

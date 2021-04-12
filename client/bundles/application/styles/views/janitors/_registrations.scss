@@ -1,0 +1,19 @@
+/*! purgecss start ignore */
+body.registrations.registrations--new {
+  @screen md {
+    background-color: #f7f7f7;
+  }
+
+  .panel {
+    @screen md {
+      @apply max-w-4xl mt-12 mb-12;
+    }
+  }
+
+  .session-page {
+    @screen md {
+      justify-content: unset;
+    }
+  }
+}
+/*! purgecss end ignore */

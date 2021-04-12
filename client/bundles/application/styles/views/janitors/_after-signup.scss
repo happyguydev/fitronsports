@@ -1,0 +1,25 @@
+/*! purgecss start ignore */
+body.after_signup.after_signup--show {
+  @screen md {
+    background-color: #f7f7f7;
+  }
+
+  .panel {
+    @apply mt-0;
+    
+    @screen md {
+      @apply max-w-4xl mt-12 mb-12;
+    }
+  }
+
+  .signin-top {
+    display: none;
+  }
+
+  .session-page {
+    @screen md {
+      justify-content: unset;
+    }
+  }
+}
+/*! purgecss end ignore */

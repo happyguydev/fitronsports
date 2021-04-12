@@ -1,0 +1,61 @@
+<div class="hidden md:flex flex-col w-full">
+  <div class="header-nav--wrapper">
+    <div class="header-nav">
+      <h4 class="text-grey-800">
+        <%= link_to t("janitors.dashboard.header.home"),janitors_dashboard_path, class: 'breadcrumb' %>
+      </h4> &nbsp;&nbsp;
+      <%= icon :right %>&nbsp;&nbsp;
+      <h4 class="text-grey-400">
+        <%= t("janitors.dashboard.header.profile")%>
+      </h4>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper__page">
+  <section class="flex flex-col pb-8 md:pb-6 border-b my-6 md:mt-0 border-grey-200">
+    <h1 class="text-2xl font-bold"><%= @janitor.name %></h1>
+    <h2 class="text-base text-grey font-light mt-1 leading-5"><%= t('common.member_since') %> <%= @janitor.created_at.strftime('%d.%m.%Y') %></h2>
+  </section>
+
+  <section class="border-b mb-6 border-grey-200">
+    <% %i[email phone_number facility_name].each do |field| %>
+      <div class="info-block mb-6">
+        <div class="info-block__title">
+          <%= I18n.t "janitors.dashboard.profile.#{field}_title" %>
+        </div>
+        <div class="info-block__detail">
+          <%= @janitor.public_send field %>
+        </div>
+      </div>
+    <% end %>
+  </section>
+
+  <section class="flex flex-col">
+    <%= link_to edit_janitor_path(current_janitor), class: 'icon-button' do %>
+      <%= icon :profile_settings, class: 'icon-button__icon-start' %>
+      <div class="icon-button__body">
+        <div class="icon-button__title">
+          <%= I18n.t "janitors.dashboard.profile.profile_settings_title" %>
+        </div>
+        <div class="icon-button__description">
+          <%= I18n.t "janitors.dashboard.profile.profile_settings_hint" %>
+        </div>
+      </div>
+      <%= icon :right, class: 'icon-button__icon-end' %>
+    <% end %>
+
+    <%= link_to edit_password_janitor_path(current_janitor), class: 'icon-button mt-4' do %>
+      <%= icon :privacy, class: 'icon-button__icon-start' %>
+      <div class="icon-button__body">
+        <div class="icon-button__title">
+          <%= I18n.t "janitors.dashboard.profile.privacy_title" %>
+        </div>
+        <div class="icon-button__description">
+          <%= I18n.t "janitors.dashboard.profile.privacy_hint" %>
+        </div>
+      </div>
+      <%= icon :right, class: 'icon-button__icon-end' %>
+    <% end %>
+  </section>
+</div>

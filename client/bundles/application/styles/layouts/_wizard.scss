@@ -1,0 +1,86 @@
+/*! purgecss start ignore */
+
+$wizard-actions-height: 88px;
+$wizard-bottom-hint-height: 16px;
+
+.wizard {
+  @apply flex flex-1 flex-col h-full mt-6;
+
+  @screen md {
+    @apply mt-12;
+  }
+
+  form {
+    @apply flex flex-col h-full;
+    @apply flex-1 mb-6;
+
+    padding-bottom: $wizard-actions-height + $wizard-bottom-hint-height;
+    @screen md{
+      @apply pb-0;
+    }
+  }
+}
+
+.with__wizard-actions {
+  padding-bottom: $wizard-actions-height;
+}
+
+.wizard-actions {
+  @apply fixed left-0 right-0 bottom-0 pb-5 pt-5 bg-white;
+  @apply flex flex-1 items-end flex-row z-50;
+  @extend .container;
+
+  height: $wizard-actions-height;
+
+  @screen md{
+    @apply relative mx-auto px-0 w-full mt-12;
+
+    &[data-after-wizard-hint='true'] {
+      @apply mt-2;
+    }
+  }
+
+  .button {
+    @apply flex-1;
+  }
+}
+
+.wizard-header {
+  @apply flex flex-row items-center justify-between;
+}
+
+.wizard-navigation {
+  @apply flex flex-row;
+}
+
+.wizard-back,
+.wizard-next {
+  @apply rounded-full;
+  @apply flex flex-row items-center justify-center;
+
+  width: 34px;
+  height: 34px;
+  box-shadow: 3px 2px 12px rgba(203, 203, 203, 0.25);
+}
+
+.wizard-back {
+  @apply mr-2;
+}
+
+.wizard-bottom-hint{
+  height: $wizard-bottom-hint-height;
+  @apply fixed left-0 right-0 py-5 bg-white;
+  
+  &[data-with-actions='true'] {
+    bottom: $wizard-actions-height;
+
+    @screen md{
+      @apply bottom-0;
+    }
+  }
+
+  @screen md {
+    @apply relative mx-auto px-0 w-full mt-8;
+  }
+}
+/*! purgecss end ignore */

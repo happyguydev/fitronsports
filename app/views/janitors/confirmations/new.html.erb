@@ -1,0 +1,33 @@
+<div class="session-page">
+  <div class="panel">
+    <div class="mb-16 w-full">
+      <div class="flex flex-row w-full justify-center">
+        <%= image_tag 'logo', class: 'object-contain mb-10 w-48', alt: t('site_name') %>
+      </div>
+
+      <%= form for: resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post } do |f| %>
+        <div class="alert alert--error" data-controller="alert" data-target="form.errorAlert" data-alert-initially-visible="true">
+          <div class="alert__wrapper">
+            <% resource.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="form__inputs">
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      icon: :email,
+                      value: resource.email,
+                      error: false,
+                      input_html: { autocomplete: "email" } %>
+        </div>
+
+        <%= f.submit "Resend", class: "mt-4 w-full" %>
+      <% end %>
+    </div>
+  </div>
+
+  <%= render 'shared/session_illustration' %>
+</div>

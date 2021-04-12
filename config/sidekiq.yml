@@ -1,0 +1,6 @@
+staging:
+  :concurrency: 1
+:queues:
+  - default
+  - mailers
+  - pdf

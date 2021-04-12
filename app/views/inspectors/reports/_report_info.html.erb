@@ -1,0 +1,12 @@
+<%= content_for :head do %>
+  <script type="text/javascript">
+    window.ReportInitialData = {
+      title: "<%= report.title %>",
+      createdDate: "<%= report.created_at&.strftime('%d.%m.%Y') || '' %>",
+      facilityId: "<%= !report.facility.nil? ? report.facility_id : '-1' %>",
+      facilityName: "<%= !report.facility.nil? ? report.facility_name : '' %>",
+      status: "<%= report.status %>"
+    };
+
+  </script>
+<% end %>

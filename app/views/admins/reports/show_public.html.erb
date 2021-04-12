@@ -1,0 +1,185 @@
+<%- content_for :head do %>
+  <link href="https://unpkg.com/tailwindcss@1.8.10/dist/tailwind.min.css" rel="stylesheet">
+  <style type="text/css">
+    @media print {
+      body {
+        margin: 0;
+        padding: 0 !important;
+        min-width: 800px;
+      }
+
+      .admin-btn {
+        display: none !important;
+      }
+    }
+    @page {
+      size: A4;
+      margin: 0; 
+      padding: 0;
+    }
+    .break { page-break-inside: avoid }
+    .reports--show_public  {
+      max-width: 100% !important;
+      padding: 0 !important;
+    }
+  </style>
+<% end %>
+<div class="flex overflow-hidden bg-cool-gray-100">
+    <main class="flex-1 relative pb-8 z-0 overflow-y-auto">
+      <!-- Page header -->
+      <div class="bg-white shadow ">
+        <div class="px-4 sm:px-6 lg:max-w-6xl lg:mx-auto lg:px-8 pt-4">
+          <img src="<%= asset_url 'logo.png' %>" class="w-32 h-auto text-center ml-auto mr-auto">
+          <div class="py-6 md:flex md:items-center md:justify-between">
+            <div class="flex-1 min-w-0">
+              <!-- Profile -->
+              <div class="flex items-center">
+                <h1 class="text-2xl font-bold leading-7 text-cool-gray-900 sm:leading-9 sm:truncate ">
+                  Prüfungsbefund gemäß ÖNORM B 2609
+                </h1>
+              </div>
+              <div class="flex items-center">
+                <dl class="mt-1 flex flex-row">
+                  <dd class="flex items-center text-sm leading-5 text-gray-500 font-medium capitalize mr-6">
+                    <svg class="flex-shrink-0 mr-1 h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
+                    </svg>
+                    PB-<%= @report.id %>
+                  </dd>
+                  <dd class="flex items-center text-sm leading-5 text-gray-500 font-medium capitalize mr-6">
+                    <svg class="flex-shrink-0 mr-1 h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <%= (@report.sent_at || @report.created_at).strftime("%d.%m.%Y") %>
+                  </dd>
+                  <% if @report.accept?%>
+                    <dd class="flex items-center text-sm leading-5 text-gray-500 font-medium mr-6">
+                      <svg class="flex-shrink-0 mr-1 h-4 w-4 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                      </svg>
+                      <%= t("admin.reports.public.completed") %>
+                    </dd>
+                  <% end %>
+                </dl>
+              </div>
+            </div>
+            <div class="mt-6 flex space-x-3 md:mt-0 md:ml-4 admin-btn">
+              <% if current_admin %>
+                <span class="shadow-sm rounded-md">
+                  <button type="button" class="js-back-button inline-flex items-center px-4 py-2 border border-cool-gray-300 text-sm leading-5 font-medium rounded-md text-cool-gray-700 bg-white hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:text-cool-gray-800 active:bg-cool-gray-50 transition duration-150 ease-in-out">
+                    <%= t("admin.common.back") %>
+                  </button>
+                </span>
+              <% end %>
+              <span class="shadow-sm rounded-md">
+                <% #link_to t("admin.common.print"), public_report_page_path(:id => @report.uid , format: :pdf), class: "inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-teal-600 hover:bg-teal-500 focus:outline-none focus:shadow-outline-teal focus:border-teal-700 active:bg-teal-700 transition duration-150 ease-in-out" %>
+                <button class="inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-teal-600 hover:bg-teal-500 focus:outline-none focus:shadow-outline-teal focus:border-teal-700 active:bg-teal-700 transition duration-150 ease-in-out" onclick="window.print()"><%= t("admin.common.print") %></button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-lg leading-6 font-medium text-cool-gray-900"><%= t("admin.reports.public.overview") %></h2>
+        <div class="mt-2 gap-5">
+          <!-- Card -->
+          <div class="bg-white overflow-hidden shadow rounded-lg">
+            <div class="p-5">
+              <div class="flex">
+                <div class="pr-4 flex-auto">
+                  <div class="tmt-3 flex items-center text-sm leading-5 text-gray-900 font-medium sm:mr-6 sm:mt-0 mb-2">
+                    <svg class="flex-shrink-0 mr-1 h-4 w-4 text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <%= t("admin.reports.public.audit_by") %>
+                  </div>
+                  <p class="text-gray-600 text-sm">
+                    <%= @report.inspector.complete_name.titleize %><br>
+                    <%= t("admin.common.form.email") %>: <%= @report.inspector.email%><br>
+                    <%= t("admin.common.form.phone_number") %>: <%= @report.inspector.phone_number%><br>
+                  </p>
+                </div>
+                <div class="px-4 col-span-2 flex-auto">
+                  <div class="tmt-3 flex items-center text-sm leading-5 text-gray-900 font-medium sm:mr-6 sm:mt-0 mb-2">
+                    <svg class="flex-shrink-0 mr-1 h-4 w-4 text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <%= t("admin.reports.public.facility") %>
+                  </div>
+                  <p class="text-gray-600 text-sm">
+                    <%= @report.facility.name.titleize %><br>
+                    <%= @report.facility.street_line1 %><br>
+                    <%= @report.facility.street_line2 %><br>
+                    <%= @report.facility.postal_code %>, <%= @report.facility.city.titleize %><br>
+                    z.H. <%= @report.facility.contact_name.try(:titleize )%> (<%= @report.facility.contact_email %>)<br>
+                  </p>
+                </div>
+                <div class="pl-4 flex-auto">
+                  <div class="tmt-3 flex items-center text-sm leading-5 text-gray-900 font-medium sm:mr-6 sm:mt-0 mb-2">
+                    <%= t("admin.reports.form.signature") %>
+                  </div>
+                  <p class="text-gray-600 text-sm">
+                    <img class="h-24 w-auto" src="<%= @report.signature.image.url%>" alt="signature">
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-lg leading-6 font-medium text-cool-gray-900"><%= t("admin.reports.public.protocol") %></h2>
+          <div class="mt-2 gap-5">
+            <!-- Card -->
+            <% if @report.report_parts.any? %>
+              <% ReportPart.rates.each do |rate|%>
+                <% @report.report_parts.where(rate: rate[0]).each do |part|%>
+                  <div class="bg-white overflow-hidden shadow rounded-lg mb-4 break">
+                    <div class="p-5">
+                      <div class="pr-4">
+                        <h3><%= part.product.title.titleize %></h3>
+                        <div class="tmt-3 flex items-center text-sm leading-5 text-gray-500 font-medium sm:mr-6 sm:mt-0 mb-2">
+                          <%= render '/admins/reports/show_public_condition_icon', rate: rate[0] %>
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                          <%= part.description %>
+                        </p>
+                      </div>
+                      <% if part.images.any? %>
+                        <% part.not_original_images.each_with_index do |a, index| %>
+                          <div class="mt-4 bg-gray-200 flex">
+                            <div class="bg-gray-200 flex-1 mr-5">
+                              <img src="<%= part.image_url(a) %>">
+                              <div class="bg-gray-200 text-gray-900 text-sm m-2">
+                                <%= a.note %>
+                              </div>
+                            </div>
+                            <div class="bg-gray-200 flex-1">
+                              <% if part.original_images.any? %>
+                                <% aa = part.original_images[index] %>
+                                <% unless aa.nil? %>
+                                  <img src="<%= part.image_url(aa) %>">
+                                  <div class="bg-gray-200 text-gray-900 text-sm m-2">
+                                  </div>
+                                <% end %>
+                              <% end %>
+                            </div>
+                          </div>
+                        <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

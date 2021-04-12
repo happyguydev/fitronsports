@@ -1,0 +1,27 @@
+/*! purgecss start ignore */
+.menu {
+  @apply flex flex-col justify-between items-start pt-4;
+
+  @screen md{
+    width: 33.75rem;
+    @apply mx-auto pt-8;
+
+  }
+
+  &__content {
+    @apply mx-3;
+
+    @screen md {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}
+
+.menu-item {
+  @apply block text-left font-medium border-b text-sm py-4;
+  @screen md{
+    @apply text-center;
+  }
+}
+/*! purgecss end ignore */

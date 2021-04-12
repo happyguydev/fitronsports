@@ -1,0 +1,54 @@
+/*! purgecss start ignore */
+
+.bottom-tabs {
+  @apply flex flex-row fixed left-0 right-0 bottom-0;
+  @apply pb-4 pt-4 border-t border-gray-200 bg-white;
+
+  height: $bottom-tabs-height;
+
+  &__wrapper {
+    @apply w-full;
+  }
+}
+
+.bottom-tabs__list {
+  @apply flex flex-row justify-between;
+}
+
+.bottom-tabs__list .tab {
+  @apply flex flex-1 justify-center items-center;
+}
+
+.above-bottom-tabs {
+  @apply pb-5;
+  margin-bottom: $bottom-tabs-height;
+  @screen md{
+    @apply mb-0;
+  }
+}
+
+.tab__create-request {
+  svg {
+    path {
+      stroke: #56c5da !important;
+    }
+  }
+}
+
+.tab {
+  svg {
+    path, ellipse {
+      stroke: #000;
+    }
+  }
+}
+
+.tab--active {
+  svg {
+    path, ellipse {
+      stroke: #56c5da;
+    }
+  }
+}
+
+/*! purgecss end ignore */

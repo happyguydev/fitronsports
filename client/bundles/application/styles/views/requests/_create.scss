@@ -1,0 +1,29 @@
+/*! purgecss start ignore */
+
+.create-request {
+  @apply max-w-xl;
+
+  &__title {
+    @apply text-2xl font-bold leading-tight;
+    max-width: 15rem;
+    color: #232527;
+    margin-bottom: 24px;
+
+    @screen md{
+      @apply max-w-md;
+    }
+  }
+
+  .request-type:nth-of-type(1) {
+    @screen md{
+      @apply mr-3;
+    }
+  }
+  .request-type:nth-of-type(2) {
+    @screen md{
+      @apply ml-3;
+    }
+  }
+}
+
+/*! purgecss end ignore */

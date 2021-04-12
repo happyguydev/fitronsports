@@ -1,0 +1,19 @@
+require:
+  - rubocop-rails
+  - rubocop-performance
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+    - staging
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+AllCops:
+  Exclude:
+    - 'test/**/*'
+    - 'db/**/*'

@@ -1,0 +1,20 @@
+/*! purgecss start ignore */
+@import './facilities/search';
+@import './facilities/row';
+
+@import './requests/show';
+@import './requests/create';
+@import './requests/type';
+@import './requests/attachment';
+@import './requests/item';
+
+@import './reports/create';
+@import './reports/show';
+@import './reports/item';
+@import './reports/report-part';
+
+@import './janitors/sessions';
+@import './janitors/passwords';
+@import './janitors/registrations';
+@import './janitors/after-signup';
+/*! purgecss end ignore */

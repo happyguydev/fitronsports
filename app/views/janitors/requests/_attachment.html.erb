@@ -1,0 +1,40 @@
+<% form = local_assigns[:form] %>
+
+<div id="<%= dom_id(attachment) %>" class="attachment">
+  <div class="attachment__header">
+    <% if local_assigns[:method] == :edit %>
+      <div class="attachment__overlay">
+        <div></div>
+        <button
+          type="button"
+          class="attachment__button"
+          @click="removeFormAttachment"
+          data-dom-id="<%= dom_id(attachment) %>"
+          data-attachment-index="<%= local_assigns[:index] %>"
+        >
+          <%= icon :remove %>
+        </button>
+      </div>
+
+    <% end %>
+
+    <% if attachment.image? %>
+      <div class="attachment__image">
+        <%= image_tag(request.image_url(attachment)) %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if local_assigns[:method] == :edit %>
+    <div class="attachment__body">
+      <div class="field attachment__note">
+        <%= text_field_tag :note, attachment.note, 'v-model': "request.attachments_attributes[#{local_assigns[:index]}].note" %>
+        <%= hidden_field_tag :id, attachment.id, 'v-model': "request.attachments_attributes[#{local_assigns[:index]}].id" %>
+      </div>
+    </div>
+  <% elsif attachment.note %>
+    <div class="attachment__body">
+      <div class="attachment__note"><%= attachment.note %></div>
+    </div>
+  <% end %>
+</div>

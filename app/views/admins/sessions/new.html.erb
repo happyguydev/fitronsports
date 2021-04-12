@@ -1,0 +1,42 @@
+
+<div class="session-page">
+  <div class="panel">
+    <div class="mb-16 w-full">
+      <div class="flex flex-row w-full justify-center">
+        <%= image_tag 'logo', class: 'object-contain mb-10 w-48', alt: t('site_name') %>
+      </div>
+
+      <%= form for: resource, as: resource_name, url: session_path(resource_name), redirect: admins_root_path do |f| %>
+        <%= f.alert :error %>
+
+        <div class="form__inputs">
+          <%= f.input :email, required: true,
+            input_html: { autocomplete: "email" }, icon: :email %>
+
+          <%= f.input :password, required: true,
+            input_html: { autocomplete: "current-password" }, icon: :lock %>
+        </div>
+
+        <%= f.input :remember_me, as: :hidden, value: true, wrapper: false %>
+
+        <%= f.submit 'Login', class: 'mt-4 w-full', disabled: true %>
+
+      <% end %>
+    </div>
+  </div>
+
+  <div class="session-illustration">
+    <div class="desktop">
+      <%= svg :desktop_login_illustration %>
+    </div>
+    <div class="mobile">
+      <%= svg :login_illustration %>
+    </div>
+  </div>
+
+<% if false %>
+  <div class="w-full justify-end">
+    <%= svg :login_illustration %>
+  </div>
+  <% end %>
+</div>

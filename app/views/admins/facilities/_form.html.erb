@@ -1,0 +1,142 @@
+<%= render 'admins/shared/alerts' %>
+<%= simple_form_for @facility, url: path, method: method do |f| %>
+  <div>
+    <div class="mt-8 border-t border-gray-200 pt-8 sm:mt-5 sm:pt-10">
+      <div>
+        <h3 class="text-lg leading-6 font-medium text-gray-900">
+          <%= t('admin.facilities.form.title') %>
+        </h3>
+      </div>
+      <div class="mt-6 sm:mt-5">
+        <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="facility_name" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+            <%= t('admin.facilities.form.facility_name') %>
+          </label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <div class="max-w-lg rounded-md shadow-sm sm:max-w-xs">
+              <%= f.input :name, label: false, wrapper: false, required: true,  input_html: { class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" }%>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="facility_type" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+            <%= t('admin.facilities.form.facility_type') %>
+          </label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <div class="max-w-lg rounded-md shadow-sm sm:max-w-xs">
+              <div class="relative">
+                <%= select_tag 'facility[facility_type]', options_for_select( facility_type_select ), class: "shadow block appearance-none w-full border border-gray-200 text-gray-700 py-2 px-3 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline" %>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="facility_contact_person" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+            <%= t('admin.facilities.form.contact_name') %>
+          </label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <div class="max-w-lg rounded-md shadow-sm sm:max-w-xs">
+              <%= f.input :contact_name, label: false, wrapper: false, required: true,  input_html: { class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" }%>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="facility_contact_person" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+            <%= t('admin.facilities.form.contact_email') %>
+          </label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <div class="max-w-lg rounded-md shadow-sm sm:max-w-xs">
+              <%= f.input :contact_email, label: false, wrapper: false, required: true,  input_html: { class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" }%>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="facility_street_line1" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+            <%= t('admin.facilities.form.street_name') %>
+          </label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <div class="max-w-lg rounded-md shadow-sm sm:max-w-xs">
+              <%= f.input :street_line1, label: false, wrapper: false, required: true,  input_html: { class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" }%>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="facility_street_line2" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+            <%= t('admin.facilities.form.street_address') %>
+          </label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <div class="max-w-lg rounded-md shadow-sm sm:max-w-xs">
+              <%= f.input :street_line2, label: false, wrapper: false, required: true,  input_html: { class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" }%>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="facility_postal_code" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+            <%= t('admin.facilities.form.postal_code') %>
+          </label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <div class="max-w-lg rounded-md shadow-sm sm:max-w-xs">
+              <%= f.input :postal_code, label: false, wrapper: false, required: true,  input_html: { class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" }%>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 sm:mt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+          <label for="facility_city" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2">
+            <%= t('admin.facilities.form.city_town') %>
+          </label>
+          <div class="mt-1 sm:mt-0 sm:col-span-2">
+            <div class="max-w-lg rounded-md shadow-sm sm:max-w-xs">
+              <%= f.input :city, label: false, wrapper: false, required: true,  input_html: { class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" }%>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 sm:border-t sm:border-gray-200 sm:pt-5">
+          <div role="group" aria-labelledby="label-searchable">
+            <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-baseline">
+              <div>
+                <div class="leading-6 sm:leading-5" id="label-searchable">
+                  <label for="facility_searchable" class="block text-sm font-medium leading-5 text-gray-700 sm:mt-px sm:pt-2"><%= t('admin.facilities.form.searchable') %></label>
+                </div>
+              </div>
+              <div class="mt-4 sm:mt-0 sm:col-span-2">
+                <div class="max-w-lg">
+                  <div class="relative flex items-start">
+                    <div class="flex items-center h-5">
+                      <%= f.input :searchable, label: false, input_html: { class: "form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"} %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="mt-8 border-t border-gray-200 pt-5">
+    <div class="flex justify-end">
+      <span class="inline-flex rounded-md shadow-sm">
+        <button type="button" class="js-back-button py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
+          <%= t('admin.common.cancel') %>
+        </button>
+      </span>
+      <span class="ml-3 inline-flex rounded-md shadow-sm">
+        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+          <%= t('admin.common.save') %>
+        </button>
+      </span>
+    </div>
+  </div>
+<% end %>

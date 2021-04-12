@@ -1,0 +1,56 @@
+/*! purgecss start ignore */
+
+.facility-search {
+  @apply w-full h-full relative;
+}
+
+.facility-search__results {
+  @apply absolute inset-0;
+}
+
+.facility-search__empty-state {
+  @apply absolute inset-0;
+  @apply w-full h-full;
+}
+
+.f-modal__header {
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  padding-top: 18px !important;
+  padding-bottom: 18px !important;
+  margin-bottom: 0 !important;
+  flex-direction: row-reverse !important;
+}
+
+.f-modal-header__wrapper {
+  @apply flex justify-between flex-1;
+  @apply flex-1 ml-2;
+}
+
+.f-modal__search {
+  @apply flex-1 w-full;
+  &::placeholder {
+    color: $placeholder-color;
+  }
+}
+
+.modal--controller-facility-search {
+  .modal__footer {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .facility-row {
+    @apply w-full;
+    padding-top: 24px;
+    margin-bottom: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    .facility-row__address {
+      font-size: 0.8125rem;
+    }
+  }
+}
+
+/*! purgecss end ignore */

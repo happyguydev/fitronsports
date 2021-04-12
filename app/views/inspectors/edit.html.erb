@@ -1,0 +1,32 @@
+<div class="hidden md:flex flex-col w-full">
+  <div class="header-nav--wrapper">
+    <div class="header-nav">
+      <h4 class="text-grey-800">
+        <%= link_to t("janitors.dashboard.header.home"),inspectors_dashboard_path, class: 'breadcrumb' %>
+      </h4> &nbsp;&nbsp;
+      <%= icon :right %>&nbsp;&nbsp;
+      <h4 class="text-grey-400">
+        <%= t("janitors.dashboard.header.profile")%>
+      </h4>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-wrapper__page">
+<%= form for: @inspector, url: inspector_path(@inspector), method: :put, controller: 'form' do |f| %>
+  <%= f.alert :error, controller: 'form' %>
+  
+  <%= f.inputs I18n.t("inspectors.dashboard.profile_edit.account_details") do %>
+    <%= f.input :first_name, icon: :person, required: true, placeholder: t('common.first_name') %>
+    <%= f.input :last_name, icon: :person, required: true, placeholder: t('common.last_name') %>
+    <%= f.input :email, icon: :email, required: true, placeholder: t('common.email') %>
+    <%= f.input :phone_number, icon: :phone, required: true, placeholder: t('common.phone_number') %>
+  <% end %>
+
+  <div class="flex flex-row justify-between mt-16 wizard-actions">
+    <button type="button" class="flex-1 mr-3 button button--outline js-back-button"><%= t('common.cancel') %></button>
+    <%= f.submit t('common.save'), class: 'flex-1 ml-3' %>
+  </div>
+
+<% end %>
+</div>

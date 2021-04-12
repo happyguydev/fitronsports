@@ -1,0 +1,11 @@
+<%= form for: @janitor, url: wizard_path, method: :put, redirect: janitors_root_path, controller: 'after-signup' do |f| %>
+  <%= f.inputs t("devise.registrations.what_is_your_name") do %>
+    <div class="flex flex-col md:flex-row">
+      <%= f.input :first_name, required: true, icon: :person, class: "flex-1 md:mr-3", input_html: {'data-target': 'after-signup.firstName'}, placeholder: t("common.first_name") %>
+      <%= f.input :last_name, required: true, icon: :person, class: "flex-1 md:ml-3",  input_html: {'data-target': 'after-signup.lastName'}, placeholder: t("common.last_name")  %>
+    </div>
+  <% end %>
+
+  <%= f.submit t("devise.registrations.complete"), class: 'mb-6 w-full' %>
+
+<% end %>

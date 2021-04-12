@@ -1,0 +1,17 @@
+<tr>
+  <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+    <div class="flex items-center">
+      <div class="ml-4">
+        <div class="text-sm leading-5 font-medium text-gray-900"><%= inspector.complete_name %></div>
+        <div class="text-sm leading-5 text-gray-500"><%= inspector.email %></div>
+      </div>
+    </div>
+  </td>
+
+  <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500"><%= inspector.try(:organisation).try(:name) %></td>
+
+  <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
+      <a href="/admins/inspectors/<%= inspector.id%>/edit" class="text-indigo-600 hover:text-indigo-900"><%= t("admin.common.edit") %></a>
+      <a href="/admins/inspectors/<%= inspector.id%>" data-method="delete" rel="nofollow" class="ml-1 text-indigo-600"><%= t("admin.common.delete") %></a>
+  </td>
+</tr>

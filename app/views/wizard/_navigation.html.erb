@@ -1,0 +1,7 @@
+<nav class="wizard-navigation">
+  <% if @previous_step %>
+    <%= link_to wizard_path(@previous_step), class: 'wizard-back wizard-action js-wizard-back' do %>
+      <%= icon :arrow_left %>
+    <% end %>
+  <% end %>
+</nav>

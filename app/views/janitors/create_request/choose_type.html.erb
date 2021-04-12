@@ -1,0 +1,41 @@
+<div class="create-request wizard">
+  <%= render 'header' %>
+
+  <%= form for: @request, url: wizard_path, method: :put,
+    controller: 'createRequestChooseType', json_handlers: false do |f| %>
+    <%= f.alert :error %>
+
+    <%= f.inputs t("create_request.choose_type"), class: 'mt-2' do %>
+      <%= f.input :request_type, as: :hidden, wrapper: false, required: true,
+        input_html: { data: { target: "createRequestChooseType.requestType" } } %>
+      
+      <div class="flex flex-col md:flex-row">
+        <% Request.request_types.each_key do |type| %>
+          <button
+            type="button"
+            data-action="click->createRequestChooseType#setRequestType"
+            data-target="createRequestChooseType.requestTypeSelect"
+            class="request-type mb-6 <% if @request.request_type == type %>request-type--active<% end %>"
+            data-type="<%= type %>"
+          >
+            <div class="request-type__title">
+              <%= I18n.t "create_request.request_types.#{type}" %>
+            </div>
+            <div class="request-type__illustration">
+              <%= image_tag type %>
+            </div>
+
+            <div class="request-type__illustration-md">
+              <%= image_tag type %>
+            </div>
+            <div class="request-type__title-md">
+              <%= I18n.t "create_request.request_types.#{type}" %>
+            </div>
+          </button>
+        <% end %>
+      </div>
+    <% end %>
+
+    <%= render 'wizard/actions', form: f %>
+  <% end %>
+</div>

@@ -1,0 +1,20 @@
+<div class="dashboard-welcome">
+  <div class="dashboard-welcome__wrapper md:mt-1">
+    <div class="flex flex-col md:flex-row md:mt-1">
+      <h1 class="text-2xl"><%= t "janitors.dashboard.home.say_hi" %> <%= @janitor.name&.first&.capitalize %>,</h1>
+      <h2 class="text-4xl md:text-2xl md:ml-2 -mt-1 md:mt-0"><%= t "janitors.dashboard.home.welcome_back" %></h2>
+    </div>
+
+    <%= icon :handshake, class: 'ml-5 mb-2' %>
+  </div>
+</div>
+
+<section class="dashboard-home w-full">
+  <h3 class="text-2xl font-medium">
+    <%= t "janitors.dashboard.home.request_list" %>
+  </h3>
+
+  <div class="mt-4">
+    <%= render 'janitors/requests/list' %>
+  </div>
+</section>

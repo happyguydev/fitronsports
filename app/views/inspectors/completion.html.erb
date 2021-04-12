@@ -1,0 +1,15 @@
+<div class="dashboard-wrapper__page">
+  <div class="flex flex-col items-center wizard">
+    <h1 class="text-2xl text-center font-bold"><%= t("inspectors.dashboard.completion.success") %></h1>
+    <%= icon :success, class: 'mt-8 mx-auto' %>
+
+    <p class="text-center mx-auto mt-10">
+      <%= t("inspectors.dashboard.completion.notice_1") %> <br />
+      <%= t("inspectors.dashboard.completion.notice_2") %>
+    </p>
+
+    <div class="mt-10 w-full">
+      <%= link_to t("inspectors.dashboard.completion.ok_button"), inspectors_dashboard_path, class: 'button button--outline w-full mb-6' %>
+    </div>
+  </div>
+</div>

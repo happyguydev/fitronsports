@@ -1,0 +1,28 @@
+<header class="dashboard-header js-dashboard-header" data-controller="dashboard-header">
+  <nav class="dashboard-header__nav">
+    <%= link_to inspectors_dashboard_path do %>
+      <%= image_tag :logo, class: 'fitron-logo' %>
+    <% end %>
+
+    <ul class="dashboard-header__links">
+      <%= dashboard_header_link_to t("inspectors.dashboard.header.home"), inspectors_dashboard_path %>
+      <%= dashboard_header_link_to t("inspectors.dashboard.header.profile"), inspectors_dashboard_profile_path %>
+      <%= dashboard_header_link_to t("inspectors.dashboard.header.create_report"), new_inspectors_create_report_path %>
+    </ul>
+
+    <button
+      class="mb-2"
+      type="button"
+      aria-label="Open Menu"
+      data-action="click->dashboard-header#openMenu"
+    >
+      <%= icon :menu %>
+    </button>
+  </nav>
+
+  <div class="dashboard-header__extra">
+    <%= yield :header %>
+  </div>
+
+  <%= render 'inspectors/dashboard/menu' %>
+</header>

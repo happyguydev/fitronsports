@@ -1,0 +1,48 @@
+/*! purgecss start ignore */
+
+.request-list__item {
+  @apply mb-3;
+
+  @screen md{
+    @apply w-1/2 pr-3;
+  }
+  @screen xl{
+    @apply w-1/3 pr-3;
+  }
+
+  &--3th {
+    @screen xl {
+      @apply pr-0;
+    }
+  }
+
+  &--2nd {
+    @screen md {
+      @apply pr-0;
+    }
+
+    @screen xl {
+      @apply pr-3;
+    }
+  }
+
+  &--6th {
+    @apply pr-0 #{!important};
+  }
+}
+
+
+.request-type-badge {
+  @apply py-1 px-2 rounded font-medium;
+  font-size: 11px;
+
+  &.order {
+    background-color: #FFF8F1;
+    color: #FFCB7B;
+  }
+  &.service {
+    background-color: #EEFCFF;
+    @apply text-primary-500;
+  }
+}
+/*! purgecss end ignore */
